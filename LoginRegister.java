@@ -71,11 +71,15 @@ public class LoginRegister {
         loginButton = new JButton("Login");
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                User user = new User();
+                ArrayList<User> friends = new ArrayList<>();
+                ArrayList<User> sent = new ArrayList<>();
+                ArrayList<User> received = new ArrayList<>();
+                User user = new User("admin", "admin", 2001, "Colten", "Glover", friends, sent, received, true);
+                users.add(user);
                 boolean loginSuccess = false;
                 for (int i = 0; i < users.size(); i++) {
                     if (usernameText.getText().equals(users.get(i).getUsername()) && String.valueOf(passwordText.getPassword()).equals(users.get(i).getPassword())) {
-                        JOptionPane.showMessageDialog(null, "Login Successful", "Success", JOptionPane.PLAIN_MESSAGE);
+                        //JOptionPane.showMessageDialog(null, "Login Successful", "Success", JOptionPane.PLAIN_MESSAGE);
                         user = users.get(i);
                         loginSuccess = true;
                         break;
@@ -165,7 +169,9 @@ public class LoginRegister {
                                 }
                                 if (!isTaken) {
                                     ArrayList<User> friends = new ArrayList<>();
-                                    User user = new User(usernameTxt.getText(), String.valueOf(passwordTxt.getPassword()), Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(), friends);
+                                    ArrayList<User> sent = new ArrayList<>();
+                                    ArrayList<User> received = new ArrayList<>();
+                                    User user = new User(usernameTxt.getText(), String.valueOf(passwordTxt.getPassword()), Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(), friends, sent, received, false);
                                     users.add(user);
                                     regFrame.setVisible(false);
                                     regFrame.dispose();
