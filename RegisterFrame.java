@@ -77,7 +77,8 @@ public class RegisterFrame extends JFrame {
                             ArrayList<User> friends = new ArrayList<>();
                             ArrayList<User> sent = new ArrayList<>();
                             ArrayList<User> received = new ArrayList<>();
-                            User user = new User(usernameTxt.getText(), String.valueOf(passwordTxt.getPassword()), Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(), friends, sent, received, false);
+                            ArrayList<User> notifications = new ArrayList<>();
+                            User user = new User(usernameTxt.getText(), String.valueOf(passwordTxt.getPassword()), Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(), friends, sent, received, false, notifications);
                             Server.totalUsers.add(user);
                             setVisible(false);
                             dispose();

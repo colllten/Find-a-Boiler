@@ -11,8 +11,9 @@ public class User {
     private ArrayList<User> sentReqs; // Sent friend requests
     private ArrayList<User> receivedReqs; // Received friend requests
     private boolean isOnline;
+    private ArrayList<User> notifications;
 
-    public User(String username, String password, int birthYear, String firstName, String lastName, ArrayList<User> friends, ArrayList<User> sentReqs, ArrayList<User> receivedReqs, boolean isOnline) {
+    public User(String username, String password, int birthYear, String firstName, String lastName, ArrayList<User> friends, ArrayList<User> sentReqs, ArrayList<User> receivedReqs, boolean isOnline, ArrayList<User> notifications) {
         this.username = username;
         this.password = password;
         this.birthYear = birthYear;
@@ -22,6 +23,7 @@ public class User {
         this.sentReqs = sentReqs;
         this.receivedReqs = receivedReqs;
         this.isOnline = isOnline;
+        this.notifications = notifications;
     }
 
     public User() {

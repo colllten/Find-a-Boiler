@@ -33,7 +33,9 @@ public class ServerWorker extends Thread {
                 ArrayList<User> friends = new ArrayList<>();
                 ArrayList<User> received = new ArrayList<>();
                 ArrayList<User> sent = new ArrayList<>();
-                Server.totalUsers.add(new User("admin", "admin", 2001, "Colten", "Glover", friends, sent, received, true));
+                ArrayList<User> notifications = new ArrayList<>();
+
+                Server.totalUsers.add(new User("admin", "admin", 2001, "Colten", "Glover", friends, sent, received, true, notifications));
 
                 try {
                     LoginFrame lf = new LoginFrame();
