@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MainPage extends JFrame {
 
@@ -38,13 +39,20 @@ public class MainPage extends JFrame {
 
         g.gridx++;
         JButton friendsList = new JButton("Friends");
+        friendsList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // TODO
+            }
+        });
         panel.add(friendsList, g);
 
         g.gridx++;
         JButton logout = new JButton("Logout");
         logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                //ACTUAL CODE//
                 user.setOnline(false);
+                Server.activeUsers.remove(user);
                 setVisible(false);
                 dispose();
             }
