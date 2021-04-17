@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+/*
+Copy and pasted for Sud
+*/
 
 public class User {
 
