@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class ServerWorker extends Thread {
 
@@ -29,15 +28,6 @@ public class ServerWorker extends Thread {
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                ArrayList<User> totalUsers = Server.totalUsers;
-
-                ArrayList<User> friends = new ArrayList<>();
-                ArrayList<User> received = new ArrayList<>();
-                ArrayList<User> sent = new ArrayList<>();
-                ArrayList<User> notifications = new ArrayList<>();
-
-                //Server.totalUsers.add(new User("admin", "admin", 2001, "Colten", "Glover", friends, sent, received, true, notifications));
-
                 try {
                     LoginFrame lf = new LoginFrame();
                 } catch (IOException e) {
