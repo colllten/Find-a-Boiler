@@ -11,6 +11,11 @@ public class Server {
     private static final int PORT = 9090;
 
     public static void main(String[] args) {
+        ArrayList<User> friends = new ArrayList<>();
+        ArrayList<User> received = new ArrayList<>();
+        ArrayList<User> sent = new ArrayList<>();
+        ArrayList<User> notifications = new ArrayList<>();
+        totalUsers.add(new User("admin", "admin", 2001, "Colten", "Glover", friends, sent, received, true, notifications));
 
         try {
             ServerSocket socket = new ServerSocket(PORT);

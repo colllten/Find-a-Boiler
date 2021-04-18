@@ -68,10 +68,9 @@ public class LoginFrame extends JFrame {
                         //JOptionPane.showMessageDialog(null, "Login Successful", "Success", JOptionPane.PLAIN_MESSAGE);
                         user = Server.totalUsers.get(i);
                         Server.activeUsers.add(user);
+                        user.setOnline(true);
                         loginSuccess = true;
                         break;
-                    } else {
-                        System.out.println("Could not find user");
                     }
                 }
                 if (!loginSuccess) {
@@ -79,7 +78,11 @@ public class LoginFrame extends JFrame {
                 } else {
                     setVisible(false);
                     dispose();
-                    MainPage mainPage = new MainPage(user);
+                    try {
+                        MainPage mainPage = new MainPage(user);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
                 }
             }
         });
