@@ -91,6 +91,7 @@ public class MainPage extends JFrame {
                 }
             }
         });
+        //new comment
 
         searchPanel.add(searchBar, gc);
         add(searchPanel, BorderLayout.SOUTH);
