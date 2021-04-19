@@ -70,7 +70,7 @@ public class MainPage extends JFrame {
         searchPanel.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
-        JButton search = new JButton("Search ");
+        JButton search = new JButton("Search");
         gc.gridx = 0;
         gc.gridy = 0;
         gc.anchor = GridBagConstraints.FIRST_LINE_END;
@@ -83,12 +83,20 @@ public class MainPage extends JFrame {
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = searchBar.getText();
+                boolean usersFound = false;
+                ArrayList<User> potentialUsers = new ArrayList<>();
                 for (int i = 0; i < Server.totalUsers.size(); i++) {
-                    if (Server.totalUsers.get(i).getUsername().equals(username)) {
-                        JOptionPane.showMessageDialog(null, "User found!", "Found", JOptionPane.INFORMATION_MESSAGE);
-                        break;
+                    if (Server.totalUsers.get(i).getUsername().contains(username)) {
+                        potentialUsers.add(Server.totalUsers.get(i));
+                        usersFound = true;
                     }
                 }
+                if (!usersFound) {
+                    JOptionPane.showMessageDialog(null, "User not found", "Not Found", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "User(s) found!", "Found", JOptionPane.INFORMATION_MESSAGE);
+                }
+                SearchFrame sf = new SearchFrame(potentialUsers);
             }
         });
         //new comment
@@ -102,7 +110,7 @@ public class MainPage extends JFrame {
         //USE OF ARRAYS//
         JPanel totalUserPanel = new JPanel();
         totalUserPanel.setLayout(new BorderLayout());
-        JLabel count = new JLabel("Count: " + Server.totalUsers.size());
+        JLabel count = new JLabel("Total Users: " + Server.totalUsers.size());
         JButton refresh = new JButton("Refresh");
         refresh.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
