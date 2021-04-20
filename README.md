@@ -7,15 +7,13 @@
 
 #### Update main display
 Colten:
-Constructor for User: Bio, Image (profile picture)
+Constructor for User: Bio, Image (profile picture), private/public profile, add refresh method, (Later: profile pic = integer)
 
 
 #### Other Users Tab
 Jeff:
 scroll list of all users
 
-#### Look into server/client implementation
-Brayden & Colten
 
 #### My Profile (includes friends)
 Japneet:

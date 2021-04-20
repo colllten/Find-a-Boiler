@@ -12,10 +12,26 @@ public class Server {
     private static final int PORT = 9090;
 
     public static void main(String[] args) {
-        ArrayList<User> friends = new ArrayList<>();
-        ArrayList<User> received = new ArrayList<>();
-        ArrayList<User> sent = new ArrayList<>();
-        ArrayList<User> notifications = new ArrayList<>();
+        ArrayList<User> adminFriends = new ArrayList<>();
+        ArrayList<User> adminReceived = new ArrayList<>();
+        ArrayList<User> adminSent = new ArrayList<>();
+        ArrayList<User> adminNotifications = new ArrayList<>();
+        String[] adminInterests = {"Football", "Basketball", "Video Games"};
+
+        //Admin Login
+        totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin",
+                adminFriends, adminSent, adminReceived, true, adminNotifications,
+                "This is the Admin's bio", "admin@yahoo.com", adminInterests));
+
+        // Test user
+        ArrayList<User> testFriends = new ArrayList<>();
+        ArrayList<User> testReceived = new ArrayList<>();
+        ArrayList<User> testSent = new ArrayList<>();
+        ArrayList<User> testNotifications = new ArrayList<>();
+        String[] testInterests = {"Cards", "Swimming", "Running"};
+        totalUsers.add(new User("test", "test", 2001, "test", "test",
+                testFriends, testSent, testReceived, true, testNotifications, "Test bio",
+                "test@yahoo.com", testInterests));
         //TODO to use the file to create users. MEANT FOR TAIL-END OF PROJECT
         /*
 
@@ -68,15 +84,6 @@ public class Server {
         }
 
          */
-
-
-        totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin", friends, sent, received, true, notifications));
-        ArrayList<User> cgFriends = new ArrayList<>();
-        ArrayList<User> cgReceived = new ArrayList<>();
-        ArrayList<User> cgSent = new ArrayList<>();
-        ArrayList<User> cgNotifications = new ArrayList<>();
-        totalUsers.add(new User("colten", "glover", 2001, "Colten", "Glover", cgFriends, cgSent, cgReceived, true, cgNotifications));
-        totalUsers.add(new User("adi", "glover", 2001, "admin1", "admin1", cgFriends, cgSent, cgReceived, true, cgNotifications)); // Testing the search function in MainPage
 
         try {
             ServerSocket socket = new ServerSocket(PORT);

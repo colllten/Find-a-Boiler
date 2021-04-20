@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-/*
-Copy and pasted for Sud
-*/
 
 public class User {
 
@@ -15,8 +12,13 @@ public class User {
     private ArrayList<User> receivedReqs; // Received friend requests
     private boolean isOnline;
     private ArrayList<User> notifications;
+    private String bio;
+    private String email;
+    private String[] interests;
 
-    public User(String username, String password, int birthYear, String firstName, String lastName, ArrayList<User> friends, ArrayList<User> sentReqs, ArrayList<User> receivedReqs, boolean isOnline, ArrayList<User> notifications) {
+    public User(String username, String password, int birthYear, String firstName, String lastName,
+                ArrayList<User> friends, ArrayList<User> sentReqs, ArrayList<User> receivedReqs, boolean isOnline,
+                ArrayList<User> notifications, String bio, String email, String[] interests) {
         this.username = username;
         this.password = password;
         this.birthYear = birthYear;
@@ -27,6 +29,9 @@ public class User {
         this.receivedReqs = receivedReqs;
         this.isOnline = isOnline;
         this.notifications = notifications;
+        this.bio = bio;
+        this.email = email;
+        this.interests = interests;
     }
 
     public User() {
@@ -90,7 +95,12 @@ public class User {
         isOnline = online;
     }
 
-    public String toString() {
-        return String.format("Username: %s\nPassword: %s\nBirth Year: %d\nFirst Name: %s\nLast Name: %s\n", getUsername(), getPassword(), getBirthYear(), getFirstName(), getLastName());
+    public void removeReceivedNotification(User mainUser, User sentUser) {
+        for (int i = 0; i < sentUser.receivedReqs.size(); i++) {
+            if (sentUser.receivedReqs.get(i).equals(mainUser)) {
+                sentUser.receivedReqs.remove(i);
+                break;
+            }
+        }
     }
 }

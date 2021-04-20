@@ -11,9 +11,9 @@ public class Explore extends JFrame {
 	public static void main(String[] args) {
 		ArrayList<User> users = new ArrayList<User>();
 		for (int i = 0; i < 100; i++) {
-			users.add(new User("user" + i, "password", 1999, "User" + i, "Last" + i, null, null, null, false, null));
+			users.add(new User("user" + i, "password", 1999, "User" + i, "Last" + i, null, null, null, false, null, "Bio", "email@email.com", null));
 		}
-		User u = new User("user32", "password", 1999, "User32", "Last32", null, null, null, true, null);
+		User u = new User("user32", "password", 1999, "User32", "Last32", null, null, null, true, null, "Bio", "email@email.com", null);
 		SwingUtilities.invokeLater(new Runnable() {
             public void run() {
             	Explore e = new Explore(u, users);
