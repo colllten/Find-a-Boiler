@@ -94,9 +94,8 @@ public class MainPage extends JFrame {
                 if (!usersFound) {
                     JOptionPane.showMessageDialog(null, "User not found", "Not Found", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "User(s) found!", "Found", JOptionPane.INFORMATION_MESSAGE);
+                    SearchFrame sf = new SearchFrame(potentialUsers);
                 }
-                SearchFrame sf = new SearchFrame(potentialUsers);
             }
         });
         //new comment

@@ -7,8 +7,8 @@
 
 #### Update main display
 Colten:
-buttons on top,
-logo displayed
+Constructor for User: Bio, Image (profile picture)
+
 
 #### Other Users Tab
 Jeff:
