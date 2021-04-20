@@ -76,7 +76,7 @@ public class Server {
         ArrayList<User> cgSent = new ArrayList<>();
         ArrayList<User> cgNotifications = new ArrayList<>();
         totalUsers.add(new User("colten", "glover", 2001, "Colten", "Glover", cgFriends, cgSent, cgReceived, true, cgNotifications));
-        totalUsers.add(new User("adi", "glover", 2001, "Colten", "Glover", cgFriends, cgSent, cgReceived, true, cgNotifications)); // Testing the search function in MainPage
+        totalUsers.add(new User("adi", "glover", 2001, "admin1", "admin1", cgFriends, cgSent, cgReceived, true, cgNotifications)); // Testing the search function in MainPage
 
         try {
             ServerSocket socket = new ServerSocket(PORT);

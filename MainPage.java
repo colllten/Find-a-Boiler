@@ -35,6 +35,11 @@ public class MainPage extends JFrame {
 
         g.gridx++;
         JButton explore = new JButton("Explore");
+        explore.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Explore explore = new Explore(user, Server.totalUsers);
+            }
+        });
         panel.add(explore, g);
 
         g.gridx++;
