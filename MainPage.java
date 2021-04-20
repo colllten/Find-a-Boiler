@@ -64,6 +64,11 @@ public class MainPage extends JFrame {
                 Server.activeUsers.remove(user);
                 setVisible(false);
                 dispose();
+                try {
+                    LoginFrame lf = new LoginFrame();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
         panel.add(logout, g);

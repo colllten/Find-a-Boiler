@@ -76,6 +76,8 @@ public class LoginFrame extends JFrame {
                 if (!loginSuccess) {
                     JOptionPane.showMessageDialog(null, "Invalid Username or Password", "Invalid Login", JOptionPane.ERROR_MESSAGE);
                 } else {
+                    setVisible(false);
+                    dispose();
                     try {
                         MainPage mainPage = new MainPage(user);
                     } catch (IOException ioException) {
