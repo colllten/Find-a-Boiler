@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -11,9 +11,9 @@ public class Explore extends JFrame {
 	public static void main(String[] args) {
 		ArrayList<User> users = new ArrayList<User>();
 		for (int i = 0; i < 100; i++) {
-			users.add(new User("user" + i, "password", 1999, "User" + i, "Last" + i, null, null, null, false, null, "Bio", "email@email.com", null));
+			users.add(new User("user" + i, "password", 1999, "User" + i, "Last" + i, null, null, null, false, null, "bio", "interests", null));
 		}
-		User u = new User("user32", "password", 1999, "User32", "Last32", null, null, null, true, null, "Bio", "email@email.com", null);
+		User u = new User("user32", "password", 1999, "User32", "Last32", null, null, null, true, null, "bio", "interests", null);
 		SwingUtilities.invokeLater(new Runnable() {
             public void run() {
             	Explore e = new Explore(u, users);
@@ -37,25 +37,58 @@ public class Explore extends JFrame {
 				otherUsers.remove(i);
 			}
 		}
+
+		ArrayList<JPanel> panels = new ArrayList<JPanel>();
+
 		if (otherUsers != null) {
 			for (int i = 0; i < otherUsers.size(); i++) {
-				people[i] = otherUsers.get(i).getFirstName() + " " + otherUsers.get(i).getLastName();
+				JPanel panel = new JPanel();
+				JButton profileButton = new JButton("View Profile");
+				int finalI = i;
+				profileButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						System.out.println(otherUsers.get(finalI).getUsername() + "'s Profile");
+					}
+				});
+				JButton friendReqButton = new JButton("Send Friend Request");
+				friendReqButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						System.out.println(otherUsers.get(finalI).getUsername() + " friend request");
+					}
+				});
+				JLabel name = new JLabel(otherUsers.get(i).getFirstName() + " " + otherUsers.get(i).getLastName());
+				if (otherUsers.get(i).getFriends() != null) {
+					if (otherUsers.get(i).getFriends().contains(u)) {
+						panel.add(name);
+						panel.add(profileButton);
+					} else {
+						panel.add(name);
+						panel.add(profileButton);
+						panel.add(friendReqButton);
+					}
+				} else {
+					panel.add(name);
+					panel.add(profileButton);
+					panel.add(friendReqButton);
+				}
+				panels.add(panel);
 			}
-//			for (int i = 0; i < people.length; i++) {
-//				System.out.println(people[i]);
-//			}
 		}
-		JList list = new JList(people);
+
+		JPanel panelScroll = new JPanel();
+		panelScroll.setLayout(new GridLayout(panels.size(), 1));
 		
-		JScrollPane scrollPane = new JScrollPane(list);
+		for (int i = 0; i < panels.size(); i++) {
+			panelScroll.add(panels.get(i));
+		}
+
+		JScrollPane scrollPane = new JScrollPane(panelScroll);
+		scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 		
 		JPanel topPanel = new JPanel();
 		JButton home = new JButton("Home");
 		home.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
-				
-				// INSERT CODE HERE TO SWITCH BACK TO MAIN PAGE
-
 				try {
 					explore.setVisible(false);
 					explore.dispose();
@@ -63,11 +96,7 @@ public class Explore extends JFrame {
 				} catch (IOException ioException) {
 					ioException.printStackTrace();
 				}
-
-				System.out.println("Home button pressed");
 			}
-			
-			
 		});
 		topPanel.add(home);
 		explore.add(topPanel, BorderLayout.NORTH);
