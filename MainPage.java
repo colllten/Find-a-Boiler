@@ -38,6 +38,7 @@ public class MainPage extends JFrame {
         explore.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Explore explore = new Explore(user, Server.totalUsers);
+                dispose();
             }
         });
         panel.add(explore, g);
@@ -116,20 +117,7 @@ public class MainPage extends JFrame {
 
         //SEARCH FUNCTION//
 
-        //USE OF ARRAYS//
-        JPanel totalUserPanel = new JPanel();
-        totalUserPanel.setLayout(new BorderLayout());
-        JLabel count = new JLabel("Total Users: " + Server.totalUsers.size());
-        JButton refresh = new JButton("Refresh");
-        refresh.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                count.setText("Total Users: " + Server.totalUsers.size());
-            }
-        });
-        totalUserPanel.add(refresh, BorderLayout.NORTH);
-        totalUserPanel.add(count, BorderLayout.SOUTH);
-        add(totalUserPanel, BorderLayout.WEST);
-        //USE OF ARRAYS//
+
 
         //PICTURE//
         /*

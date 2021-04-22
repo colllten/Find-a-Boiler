@@ -16,8 +16,10 @@ public class Server {
         ArrayList<User> adminReceived = new ArrayList<>();
         ArrayList<User> adminSent = new ArrayList<>();
         ArrayList<User> adminNotifications = new ArrayList<>();
-        String[] adminInterests = {"Football", "Basketball", "Video Games"};
-
+        ArrayList<String> adminInterests = new ArrayList<>();
+        adminInterests.add("Football");
+        adminInterests.add("Dancing");
+        adminInterests.add("Singing");
         //Admin Login
         totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin",
                 adminFriends, adminSent, adminReceived, true, adminNotifications,
@@ -28,7 +30,7 @@ public class Server {
         ArrayList<User> testReceived = new ArrayList<>();
         ArrayList<User> testSent = new ArrayList<>();
         ArrayList<User> testNotifications = new ArrayList<>();
-        String[] testInterests = {"Cards", "Swimming", "Running"};
+        ArrayList<String> testInterests = new ArrayList<>();
         totalUsers.add(new User("test", "test", 2001, "test", "test",
                 testFriends, testSent, testReceived, true, testNotifications, "Test bio",
                 "test@yahoo.com", testInterests));

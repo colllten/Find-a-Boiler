@@ -14,11 +14,11 @@ public class User {
     private ArrayList<User> notifications;
     private String bio;
     private String email;
-    private String[] interests;
+    private ArrayList<String> interests;
 
     public User(String username, String password, int birthYear, String firstName, String lastName,
                 ArrayList<User> friends, ArrayList<User> sentReqs, ArrayList<User> receivedReqs, boolean isOnline,
-                ArrayList<User> notifications, String bio, String email, String[] interests) {
+                ArrayList<User> notifications, String bio, String email, ArrayList<String> interests) {
         this.username = username;
         this.password = password;
         this.birthYear = birthYear;
@@ -41,6 +41,10 @@ public class User {
         this.firstName = null;
         this.lastName = null;
         this.friends = null;
+    }
+
+    public ArrayList<String> getInterests() {
+        return interests;
     }
 
     public String getUsername() {

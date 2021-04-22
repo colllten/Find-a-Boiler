@@ -101,6 +101,7 @@ public class Explore extends JFrame {
 		topPanel.add(home);
 		explore.add(topPanel, BorderLayout.NORTH);
 		explore.add(scrollPane);
+		explore.setLocationRelativeTo(null);
 		explore.setVisible(true);
 		
 	}
