@@ -107,4 +107,10 @@ public class User {
             }
         }
     }
+
+    public void sendFriendReq(User current, User rec) {
+        current.sentReqs.add(rec);
+        rec.receivedReqs.add(current);
+    }
+
 }

@@ -53,7 +53,12 @@ public class Explore extends JFrame {
 				JButton friendReqButton = new JButton("Send Friend Request");
 				friendReqButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						// NEW FRIEND REQUEST METHOD IN USE //
 						System.out.println(otherUsers.get(finalI).getUsername() + " friend request");
+						u.sendFriendReq(u, otherUsers.get(finalI));
+						System.out.println("Main User sent request" + u.getSentReqs().get(0));
+						System.out.println("Receiver received: " + otherUsers.get(finalI).getReceivedReqs().get(0));
+						// NEW FRIEND REQUEST METHOD IN USE //
 					}
 				});
 				JLabel name = new JLabel(otherUsers.get(i).getFirstName() + " " + otherUsers.get(i).getLastName());
