@@ -99,10 +99,16 @@ public class User {
         isOnline = online;
     }
 
-    public void removeReceivedNotification(User mainUser, User sentUser) {
+    public void removeNotification(User mainUser, User sentUser) {
         for (int i = 0; i < sentUser.receivedReqs.size(); i++) {
-            if (sentUser.receivedReqs.get(i).equals(mainUser)) {
+            if (sentUser.receivedReqs.get(i).getUsername().equals(mainUser.getUsername())) {
                 sentUser.receivedReqs.remove(i);
+                break;
+            }
+        }
+        for (int i = 0; i < mainUser.sentReqs.size(); i++) {
+            if (mainUser.sentReqs.get(i).getUsername().equals(sentUser.getUsername())) {
+                mainUser.sentReqs.remove(i);
                 break;
             }
         }
