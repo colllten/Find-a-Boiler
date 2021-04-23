@@ -114,6 +114,14 @@ public class User {
         }
     }
 
+    public void removeAccDec(User mainUser, User otherUser) {
+        int i = mainUser.getReceivedReqs().indexOf(otherUser);
+        mainUser.getReceivedReqs().remove(i);
+        
+        int temp = otherUser.getSentReqs().indexOf(mainUser);
+        otherUser.getSentReqs().remove(temp);
+    }
+
     public void sendFriendReq(User current, User rec) {
         current.sentReqs.add(rec);
         rec.receivedReqs.add(current);
