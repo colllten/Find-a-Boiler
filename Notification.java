@@ -83,14 +83,26 @@ public class Notification extends JFrame {
         }
 
         JPanel panelScroll = new JPanel();
+        panelScroll.setSize(600, 250);
         panelScroll.setLayout(new GridLayout(panels.size(), 1));
+        
+        JPanel label = new JPanel();
+        JLabel recLabel = new JLabel("Received Friend Requests");
+        label.add(recLabel);
+        panelScroll.add(label);
 
         for (int i = 0; i < panels.size(); i++) {
             panelScroll.add(panels.get(i));
         }
 
         JPanel panelScroll1 = new JPanel();
+        panelScroll1.setSize(600, 250);
         panelScroll1.setLayout(new GridLayout(panels1.size(), 1));
+
+        JPanel label1 = new JPanel();
+        JLabel sentLabel = new JLabel("Sent Friend Requests");
+        label1.add(sentLabel);
+        panelScroll1.add(label1);
 
         for (int i = 0; i < panels1.size(); i++) {
             panelScroll1.add(panels1.get(i));
@@ -123,4 +135,16 @@ public class Notification extends JFrame {
         add(scrollPaneS, BorderLayout.SOUTH);
         setVisible(true);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
