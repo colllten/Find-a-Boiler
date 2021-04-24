@@ -99,7 +99,7 @@ public class User {
         isOnline = online;
     }
 
-    public void removeNotification(User mainUser, User sentUser) {
+    public void cancelNotification(User mainUser, User sentUser) {
         for (int i = 0; i < sentUser.receivedReqs.size(); i++) {
             if (sentUser.receivedReqs.get(i).getUsername().equals(mainUser.getUsername())) {
                 sentUser.receivedReqs.remove(i);
@@ -117,7 +117,7 @@ public class User {
     public void removeAccDec(User mainUser, User otherUser) {
         int i = mainUser.getReceivedReqs().indexOf(otherUser);
         mainUser.getReceivedReqs().remove(i);
-        
+
         int temp = otherUser.getSentReqs().indexOf(mainUser);
         otherUser.getSentReqs().remove(temp);
     }
