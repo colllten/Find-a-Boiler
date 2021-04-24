@@ -7,37 +7,15 @@ import javax.swing.*;
 
 public class Notification extends JFrame {
 
-
-    public static void main(String[] args) {
-        ArrayList<User> users = new ArrayList<User>();
-        for (int i = 0; i < 100; i++) {
-            users.add(new User("user" + i, "password", 1999, "User" + i, "Last" + i, null, null, null, false, null, "bio", "interests", null));
-        }
-        User u = new User("user32", "password", 1999, "User32", "Last32", null, null, null, true, null, "bio", "interests", null);
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                Notification n = new Notification(u, users);
-            }
-        });
-    }
-
-    public Notification(User u, ArrayList<User> users) {
-        JFrame explore = new JFrame("Your Notifications");
-        explore.setLocationRelativeTo(null);
-        explore.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        explore.setLayout(new BorderLayout());
-        explore.setSize(500,500);
-        String[] people = new String[users.size()];
-        ArrayList<User> pendingUsers = new ArrayList<User>();
-        pendingUsers.addAll(users);
-        for (int i = 0; i < users.size(); i++) {
-            String username = u.getUsername();
-            User user = users.get(i);
-            if (username.equals(user.getUsername())){
-                pendingUsers.remove(i);
-            }
-        }
-
+    public Notification(User u) {
+        setTitle("Notifications");
+        setSize(new Dimension(600,600));
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLayout(new BorderLayout());
+        ArrayList<User> pendingUsers = new ArrayList<>();
+        pendingUsers.addAll(u.getReceivedReqs());
+        ArrayList<User> sentUsers = new ArrayList<>();
+        sentUsers.addAll(u.getSentReqs());
         ArrayList<JPanel> panels = new ArrayList<JPanel>();
 
         if (pendingUsers != null) {
@@ -53,36 +31,54 @@ public class Notification extends JFrame {
                 JButton acceptButton = new JButton("Accept");
                 acceptButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println(pendingUsers.get(finalI).getUsername() + " friend request");
+                        u.removeAccDec(u, pendingUsers.get(finalI));
+                        u.getFriends().add(pendingUsers.get(finalI));
+                        pendingUsers.get(finalI).getFriends().add(u);
                     }
                 });
 
                 JButton declineButton = new JButton("Decline");
                 declineButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println(pendingUsers.get(finalI).getUsername() + " friend request");
+                        u.removeAccDec(u, pendingUsers.get(finalI));
                     }
                 });
                 JLabel name = new JLabel(pendingUsers.get(i).getFirstName() + " " + pendingUsers.get(i).getLastName());
-                if (pendingUsers.get(i).getFriends() != null) {
-                    if (pendingUsers.get(i).getReceivedReqs().contains(u)) {
-                        panel.add(name);
-                        panel.add(profileButton);
-                        panel.add(acceptButton);
-                        panel.add(declineButton);
-                    } else {
-                        panel.add(name);
-                        panel.add(profileButton);
-                        panel.add(acceptButton);
-                        panel.add(declineButton);
-                    }
-                } else {
-                    panel.add(name);
-                    panel.add(profileButton);
-                    panel.add(acceptButton);
-                    panel.add(declineButton);
-                }
+
+                panel.add(name);
+                panel.add(profileButton);
+                panel.add(acceptButton);
+                panel.add(declineButton);
                 panels.add(panel);
+            }
+        }
+        // ADD SENT PART BELOW
+
+        ArrayList<JPanel> panels1 = new ArrayList<>();
+
+        if (sentUsers != null) {
+            for (int i = 0; i < sentUsers.size(); i++) {
+                JPanel panel = new JPanel();
+                JButton profileButton = new JButton("View Profile");
+                int finalI = i;
+                profileButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println(sentUsers.get(finalI).getUsername() + "'s Profile");
+                    }
+                });
+                JButton cancelButton = new JButton("Rescind");
+                cancelButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        u.cancelNotification(u, sentUsers.get(finalI));
+                    }
+                });
+
+                JLabel name = new JLabel(sentUsers.get(i).getFirstName() + " " + sentUsers.get(i).getLastName());
+
+                panel.add(name);
+                panel.add(profileButton);
+                panel.add(cancelButton);
+                panels1.add(panel);
             }
         }
 
@@ -93,28 +89,38 @@ public class Notification extends JFrame {
             panelScroll.add(panels.get(i));
         }
 
-        JScrollPane scrollPane = new JScrollPane(panelScroll);
-        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        JPanel panelScroll1 = new JPanel();
+        panelScroll1.setLayout(new GridLayout(panels1.size(), 1));
+
+        for (int i = 0; i < panels1.size(); i++) {
+            panelScroll1.add(panels1.get(i));
+        }
+
+        JScrollPane scrollPaneR = new JScrollPane(panelScroll);
+        scrollPaneR.getVerticalScrollBar().setUnitIncrement(16);
+
+        JScrollPane scrollPaneS = new JScrollPane(panelScroll1);
+        scrollPaneS.getVerticalScrollBar().setUnitIncrement(16);
 
         JPanel topPanel = new JPanel();
         JButton home = new JButton("Home");
         home.addActionListener(new ActionListener () {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    explore.setVisible(false);
-                    explore.dispose();
+                    setVisible(false);
+                    dispose();
                     MainPage main = new MainPage(u);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
             }
         });
+        setLocationRelativeTo(null);
+
         topPanel.add(home);
-        explore.add(topPanel, BorderLayout.NORTH);
-        explore.add(scrollPane);
-        explore.setVisible(true);
-
+        add(topPanel, BorderLayout.NORTH);
+        add(scrollPaneR, BorderLayout.CENTER);
+        add(scrollPaneS, BorderLayout.SOUTH);
+        setVisible(true);
     }
-
-
 }
