@@ -37,14 +37,22 @@ public class MainPage extends JFrame {
         JButton explore = new JButton("Explore");
         explore.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Explore explore = new Explore(user, Server.totalUsers);
+                setVisible(false);
                 dispose();
+                Explore explore = new Explore(user, Server.totalUsers);
             }
         });
         panel.add(explore, g);
 
         g.gridx++;
         JButton notifications = new JButton("Notifications");
+        notifications.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                dispose();
+                Notification notification = new Notification(user);
+            }
+        });
         panel.add(notifications, g);
 
         g.gridx++;
@@ -54,6 +62,7 @@ public class MainPage extends JFrame {
                 // TODO
             }
         });
+        panel.add(notifications, g);
         panel.add(friendsList, g);
 
         g.gridx++;
@@ -117,7 +126,20 @@ public class MainPage extends JFrame {
 
         //SEARCH FUNCTION//
 
-
+        //USE OF ARRAYS//
+        JPanel totalUserPanel = new JPanel();
+        totalUserPanel.setLayout(new BorderLayout());
+        JLabel count = new JLabel("Total Users: " + Server.totalUsers.size());
+        JButton refresh = new JButton("Refresh");
+        refresh.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                count.setText("Total Users: " + Server.totalUsers.size());
+            }
+        });
+        totalUserPanel.add(refresh, BorderLayout.NORTH);
+        totalUserPanel.add(count, BorderLayout.SOUTH);
+        add(totalUserPanel, BorderLayout.WEST);
+        //USE OF ARRAYS//
 
         //PICTURE//
         /*
