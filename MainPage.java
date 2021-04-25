@@ -45,6 +45,14 @@ public class MainPage extends JFrame {
 
         g.gridx++;
         JButton notifications = new JButton("Notifications");
+        /*
+        notifications.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new Notification(user);
+            }
+        });
+
+         */
         panel.add(notifications, g);
 
         g.gridx++;

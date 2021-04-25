@@ -95,6 +95,34 @@ public class User {
         return isOnline;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public ArrayList<User> getNotifications() {
+        return notifications;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     public void setOnline(boolean online) {
         isOnline = online;
     }
@@ -120,6 +148,10 @@ public class User {
 
         int temp = otherUser.getSentReqs().indexOf(mainUser);
         otherUser.getSentReqs().remove(temp);
+
+        for (int j = 0; j < mainUser.friends.size(); i++) {
+            System.out.println("Added / Canceled " + otherUser.getUsername());
+        }
     }
 
     public void sendFriendReq(User current, User rec) {
