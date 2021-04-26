@@ -9,7 +9,7 @@ public class Notification extends JFrame {
 
     public Notification(User u) {
         setTitle("Notifications");
-        setSize(new Dimension(600,600));
+        setSize(new Dimension(500,500));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
         ArrayList<User> pendingUsers = new ArrayList<>();

@@ -16,7 +16,7 @@ public class MainPage extends JFrame {
     public MainPage(User user) throws IOException {
         //FRAME SETUP//
         setTitle("Welcome " + user.getFirstName());
-        setSize(new Dimension(600, 600));
+        setSize(new Dimension(500, 500));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
         panel = new JPanel();
