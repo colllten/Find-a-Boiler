@@ -22,7 +22,7 @@ public class Server {
         adminInterests.add("Singing");
         //Admin Login
         totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin",
-                adminFriends, adminSent, adminReceived, true, adminNotifications,
+                adminFriends, adminSent, adminReceived, false, adminNotifications,
                 "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public"));
 
         // Test user
@@ -32,7 +32,7 @@ public class Server {
         ArrayList<User> testNotifications = new ArrayList<>();
         ArrayList<String> testInterests = new ArrayList<>();
         totalUsers.add(new User("test", "test", 2001, "test", "test",
-                testFriends, testSent, testReceived, true, testNotifications, "Test bio",
+                testFriends, testSent, testReceived, false, testNotifications, "Test bio",
                 "test@yahoo.com", testInterests, "public"));
 
         ArrayList<User> otherFriends = new ArrayList<User>();
@@ -41,7 +41,7 @@ public class Server {
         ArrayList<User> otherNotifications = new ArrayList<>();
         ArrayList<String> otherInterests = new ArrayList<>();
         totalUsers.add(new User("other", "other", 2001, "other", "other",
-                otherFriends, otherSent, otherReceived, true, otherNotifications, "Other bio",
+                otherFriends, otherSent, otherReceived, false, otherNotifications, "Other bio",
                 "other@email.com", otherInterests, "public"));
         //TODO to use the file to create users. MEANT FOR TAIL-END OF PROJECT
         /*

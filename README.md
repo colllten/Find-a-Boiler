@@ -7,7 +7,15 @@
 
 #### Update main display
 Colten:
-Constructor for User: Bio, Image (profile picture), private/public profile, add refresh method, (Later: profile pic = integer)
+Delete button in Settings, JOption to confirm it
+File reading using serializable
+Friends list
+Add Profile picture
+Add to RegisterFrame public/private/protected
+import CSV files to RegisterFrame
+Profile frame changes
+Add external profile frames for when someone else is looking at it
+Add JavaDocs
 
 
 #### Other Users Tab
