@@ -47,7 +47,7 @@ public class MyProfile extends JFrame {
         });
 
          */
-        JButton contact = new JButton("Contact");
+        JButton contact = new JButton("Contact Info");
         contact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, user.getEmail(), "Email", JOptionPane.INFORMATION_MESSAGE);

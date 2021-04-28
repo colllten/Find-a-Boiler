@@ -13,9 +13,10 @@ Friends list
 Add Profile picture
 Add to RegisterFrame public/private/protected
 import CSV files to RegisterFrame
+export CSV file in Settings
 Profile frame changes
 Add external profile frames for when someone else is looking at it
-Add JavaDocs
+Change search function
 
 
 #### Other Users Tab
