@@ -31,6 +31,13 @@ public class MainPage extends JFrame {
         g.gridx = 0;
         g.gridy = 0;
         profile = new JButton("My Profile");
+        profile.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                dispose();
+                new MyProfile(user);
+            }
+        });
         panel.add(profile, g);
 
         g.gridx++;
@@ -62,7 +69,6 @@ public class MainPage extends JFrame {
                 // TODO
             }
         });
-        panel.add(notifications, g);
         panel.add(friendsList, g);
 
         g.gridx++;

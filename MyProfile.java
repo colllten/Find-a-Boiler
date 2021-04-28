@@ -5,39 +5,34 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class MyProfile extends JFrame {
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                MyProfile();
-            }
-        });
 
-
-    }
-    private static void MyProfile() {
-        JFrame jf = new JFrame("My profile");
+    public MyProfile(User user) {
+        setTitle("My Profile");
+        setLayout(new BorderLayout());
         JPanel jp = new JPanel();
-        User u = new User();
         GridBagConstraints gbc = new GridBagConstraints();
         jp.setBackground(Color.PINK);
-        JButton pic = new JButton("pic");
-        JLabel username = new JLabel(u.getUsername());
+        JButton pic = new JButton("Profile Picture");
+        JLabel username = new JLabel(user.getUsername());
 
-        JLabel aboutme = new JLabel(u.getBio());
-        JButton friends = new JButton("friends");
-        friends.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Object[] namef = new Object[(u.getFriends()).size()];
-                namef = (u.getFriends()).toArray();
-                String[] fname = new String[(u.getFriends()).size()];
-                for (int i = 0; i < (u.getFriends()).size(); i++) {
+        JLabel aboutMe = new JLabel(user.getBio());
+        JButton friends = new JButton("Friends");
+        //friends.addActionListener(new ActionListener() {
+        //public void actionPerformed(ActionEvent e) {
+        //Object[] namef = new Object[(user.getFriends()).size()];
+        //namef = (u.getFriends()).toArray();
+                /*
+                String[] fname = new String[(user.getFriends()).size()];
+                for (int i = 0; i < (user.getFriends()).size(); i++) {
                     fname[i] = String.valueOf(namef[i]);
                 }
                 JOptionPane.showMessageDialog(jf, fname);
 
             }
-        });
-        JButton interests = new JButton("interests");
+        });*/
+
+        JButton interests = new JButton("Interests");
+        /*
         interests.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Object[] interests = new Object[(u.getFriends()).size()];
@@ -50,17 +45,21 @@ public class MyProfile extends JFrame {
 
             }
         });
-        JButton contact = new JButton("contact");
+
+         */
+        JButton contact = new JButton("Contact");
         contact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(jf, u.getEmail());
+                JOptionPane.showMessageDialog(null, user.getEmail(), "Email", JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
-        JButton settings = new JButton ("settings");
+        JButton settings = new JButton("Settings");
         settings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               // new Settings();
+                setVisible(false);
+                dispose();
+                new SettingsFrame(user);
             }
         });
         jp.setLayout(new GridBagLayout());
@@ -75,7 +74,7 @@ public class MyProfile extends JFrame {
 
         gbc.gridx = 1;
         gbc.gridy = 2;
-        jp.add(aboutme, gbc);
+        jp.add(aboutMe, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -94,23 +93,10 @@ public class MyProfile extends JFrame {
         gbc.anchor = GridBagConstraints.LAST_LINE_END;
         jp.add(settings, gbc);
 
-        jf.add(jp);
-        jf.pack();
-        jf.setVisible(true);
-
-        jf.setLocationRelativeTo(null);
-        jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        //jf. setLayout(new GridBagLayout());
-        jf.setSize(600, 600);
-
-        //jf..pack();
-        jf.setVisible(true);
+        add(jp, BorderLayout.CENTER);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setSize(600, 600);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
-
-
-
-
-
-
-
 }
