@@ -62,6 +62,7 @@ public class SettingsFrame extends JFrame {
                         if (user.getUsername().equals(Server.totalUsers.get(counter).getUsername())) {
                             break;
                         }
+                        counter++;
                     }
                     Server.totalUsers.remove(counter);
                     boolean isTaken = false;
@@ -69,7 +70,6 @@ public class SettingsFrame extends JFrame {
                         if (usernameTxt.getText().equals(Server.totalUsers.get(i).getUsername())) {
                             JOptionPane.showMessageDialog(null, "Username is already taken", "Password Error", JOptionPane.ERROR_MESSAGE);
                             isTaken = true;
-                            break;
                         }
                     }
                     if (!isTaken) {
@@ -79,11 +79,11 @@ public class SettingsFrame extends JFrame {
                         user.setPassword(String.valueOf(newPasswordTxt.getPassword()));
                         user.setEmail(emailTxt.getText());
                         user.setBio(bioTxt.getText());
-                        Server.totalUsers.add(user);
                         setVisible(false);
                         dispose();
                         new MyProfile(user);
                     }
+                    Server.totalUsers.add(user);
                 }
             }
         });
