@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SettingsFrame extends JFrame {
+    //TODO: add button to delete account
 
     public SettingsFrame(User user) {
         //FRAME CREATION//
