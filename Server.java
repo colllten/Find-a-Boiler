@@ -23,7 +23,7 @@ public class Server {
         //Admin Login
         totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin",
                 adminFriends, adminSent, adminReceived, true, adminNotifications,
-                "This is the Admin's bio", "admin@yahoo.com", adminInterests));
+                "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public"));
 
         // Test user
         ArrayList<User> testFriends = new ArrayList<>();
@@ -33,7 +33,16 @@ public class Server {
         ArrayList<String> testInterests = new ArrayList<>();
         totalUsers.add(new User("test", "test", 2001, "test", "test",
                 testFriends, testSent, testReceived, true, testNotifications, "Test bio",
-                "test@yahoo.com", testInterests));
+                "test@yahoo.com", testInterests, "public"));
+
+        ArrayList<User> otherFriends = new ArrayList<User>();
+        ArrayList<User> otherReceived = new ArrayList<>();
+        ArrayList<User> otherSent = new ArrayList<>();
+        ArrayList<User> otherNotifications = new ArrayList<>();
+        ArrayList<String> otherInterests = new ArrayList<>();
+        totalUsers.add(new User("other", "other", 2001, "other", "other",
+                otherFriends, otherSent, otherReceived, true, otherNotifications, "Other bio",
+                "other@email.com", otherInterests, "public"));
         //TODO to use the file to create users. MEANT FOR TAIL-END OF PROJECT
         /*
 
