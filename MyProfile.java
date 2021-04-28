@@ -95,7 +95,7 @@ public class MyProfile extends JFrame {
 
         add(jp, BorderLayout.CENTER);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(600, 600);
+        setSize(500, 500);
         setLocationRelativeTo(null);
         setVisible(true);
     }

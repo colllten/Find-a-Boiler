@@ -50,9 +50,9 @@ public class SettingsFrame extends JFrame {
                     JOptionPane.showMessageDialog(null, "Username must be between 3 and 10 characters", "Username Error", JOptionPane.ERROR_MESSAGE);
                 } else if (String.valueOf(newPasswordTxt).isEmpty() || String.valueOf(newPasswordTxt).isBlank() || String.valueOf(confirmNewPasswordTxt).isEmpty() || String.valueOf(confirmNewPasswordTxt).isBlank()) {
                     JOptionPane.showMessageDialog(null, "Password cannot be empty", "Password Error", JOptionPane.ERROR_MESSAGE);
-                } else if (String.valueOf(newPasswordTxt).length() < 3 || String.valueOf(newPasswordTxt).length() > 20) {
+                } else if (String.valueOf(newPasswordTxt.getPassword()).length() < 3 || String.valueOf(newPasswordTxt.getPassword()).length() > 20) {
                     JOptionPane.showMessageDialog(null, "Password length must be between 3 and 20 characters in length", "Password Error", JOptionPane.ERROR_MESSAGE);
-                } else if (!String.valueOf(newPasswordTxt).equals(String.valueOf(confirmNewPasswordTxt))) {
+                } else if (!String.valueOf(newPasswordTxt.getPassword()).equals(String.valueOf(confirmNewPasswordTxt.getPassword()))) {
                     JOptionPane.showMessageDialog(null, "Passwords do not match", "Password Error", JOptionPane.ERROR_MESSAGE);
                 } else if (!emailTxt.getText().contains("@") || !emailTxt.getText().contains(".")) {
                     JOptionPane.showMessageDialog(null, "Email does not contain and '@' or '.'", "Email Error", JOptionPane.ERROR_MESSAGE);
@@ -80,13 +80,65 @@ public class SettingsFrame extends JFrame {
                         user.setEmail(emailTxt.getText());
                         user.setBio(bioTxt.getText());
                         Server.totalUsers.add(user);
+                        setVisible(false);
+                        dispose();
+                        new MyProfile(user);
                     }
                 }
             }
         });
         JButton cancel = new JButton("Cancel");
+        cancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                dispose();
+                new MyProfile(user);
+            }
+        });
         //BUTTONS//
 
+        // LAYING OUT TEXT FIELDS AND LABELS //
+        g.gridx = 0;
+        g.gridy = 0;
+        g.anchor = GridBagConstraints.FIRST_LINE_END;
+        sp.add(firstName, g);
+        g.gridy++;
+        sp.add(lastName, g);
+        g.gridy++;
+        sp.add(username, g);
+        g.gridy++;
+        sp.add(newPassword, g);
+        g.gridy++;
+        sp.add(confirmNewPassword, g);
+        g.gridy++;
+        sp.add(email, g);
+        g.gridy++;
+        sp.add(bio, g);
+
+        g.gridx = 1;
+        g.gridy = 0;
+        g.anchor = GridBagConstraints.FIRST_LINE_START;
+        sp.add(firstNameTxt, g);
+        g.gridy++;
+        sp.add(lastNameTxt, g);
+        g.gridy++;
+        sp.add(usernameTxt, g);
+        g.gridy++;
+        sp.add(newPasswordTxt, g);
+        g.gridy++;
+        sp.add(confirmNewPasswordTxt, g);
+        g.gridy++;
+        sp.add(emailTxt, g);
+        g.gridy++;
+        sp.add(bioTxt, g);
+        g.gridy++;
+        g.anchor = GridBagConstraints.CENTER;
+        sp.add(submit, g);
+        g.gridy++;
+        sp.add(cancel, g);
+        // LAYING OUT TEXT FIELDS AND LABELS //
+
+        add(sp, BorderLayout.CENTER);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
