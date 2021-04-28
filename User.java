@@ -16,10 +16,11 @@ public class User implements Serializable {
     private String bio;
     private String email;
     private ArrayList<String> interests;
+    private String visibility; //public, private, or protected
 
     public User(String username, String password, int birthYear, String firstName, String lastName,
                 ArrayList<User> friends, ArrayList<User> sentReqs, ArrayList<User> receivedReqs, boolean isOnline,
-                ArrayList<User> notifications, String bio, String email, ArrayList<String> interests) {
+                ArrayList<User> notifications, String bio, String email, ArrayList<String> interests, String visibility) {
         this.username = username;
         this.password = password;
         this.birthYear = birthYear;
@@ -33,6 +34,7 @@ public class User implements Serializable {
         this.bio = bio;
         this.email = email;
         this.interests = interests;
+        this.visibility = visibility;
     }
 
     public User() {
@@ -126,6 +128,14 @@ public class User implements Serializable {
 
     public void setOnline(boolean online) {
         isOnline = online;
+    }
+
+    public String getVisibility(){
+        return this.visibility;
+    }
+
+    public void setVisibility(String visibility){
+        this.visibility = visibility;
     }
 
     public void cancelNotification(User mainUser, User sentUser) {
