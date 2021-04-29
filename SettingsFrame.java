@@ -87,6 +87,7 @@ public class SettingsFrame extends JFrame {
                     }
                     Server.totalUsers.add(user);
                 }
+                Server.writeToFile();
             }
         });
         JButton cancel = new JButton("Cancel");
@@ -114,6 +115,7 @@ public class SettingsFrame extends JFrame {
                         ioException.printStackTrace();
                     }
                 }
+                Server.writeToFile();
             }
         });
         //BUTTONS//

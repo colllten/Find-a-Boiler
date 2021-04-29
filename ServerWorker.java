@@ -22,9 +22,6 @@ public class ServerWorker extends Thread {
 
     public void handleClientSocket() throws IOException, InterruptedException {
         InputStream inputStream = clientSocket.getInputStream();
-        OutputStream outputStream = clientSocket.getOutputStream();
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {

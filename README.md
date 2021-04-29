@@ -7,7 +7,6 @@
 
 #### Update main display
 Colten:
-Delete button in Settings, JOption to confirm it
 File reading using serializable
 Friends list
 Add Profile picture

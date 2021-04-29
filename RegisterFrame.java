@@ -145,7 +145,9 @@ public class RegisterFrame extends JFrame {
                                 System.out.println(user.getInterests().get(j));
                             }
                             setVisible(false);
+                            Server.writeToFile();
                             dispose();
+
                         }
                     }
                 } catch (NumberFormatException ex) {
@@ -159,6 +161,7 @@ public class RegisterFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 dispose();
+                Server.writeToFile();
             }
         });
         //REGISTER BUTTONS//
