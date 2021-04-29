@@ -109,6 +109,7 @@ public class SettingsFrame extends JFrame {
                     setVisible(false);
                     Server.totalUsers.remove(user);
                     dispose();
+                    Server.writeToFile();
                     try {
                         new LoginFrame();
                     } catch (IOException ioException) {

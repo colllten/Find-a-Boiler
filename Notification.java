@@ -34,6 +34,7 @@ public class Notification extends JFrame {
                         u.removeAccDec(u, pendingUsers.get(finalI));
                         u.getFriends().add(pendingUsers.get(finalI));
                         pendingUsers.get(finalI).getFriends().add(u);
+                        Server.writeToFile();
                     }
                 });
 

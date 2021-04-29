@@ -4,26 +4,23 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.awt.event.*;
 
-public class FriendsProfile
-{
+public class FriendsProfile extends JFrame {
     public FriendsProfile(User user) {
-        JFrame jf = new JFrame("Friends");
-        
-        jf.setLayout(new BorderLayout());
-        jf.setSize(500, 500);
-        /** why cant i do this */
-        //jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setTitle("Friends");
+        setLayout(new BorderLayout());
+        setSize(500, 500);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         JPanel jp = new JPanel();
         jp.setBackground(Color.PINK);
         jp.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
-        JButton returnto = new JButton("return to My Profile");
+        JButton returnto = new JButton("Return to My Profile");
         returnto.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                jf.setVisible(false);
-                jf.dispose();
+                setVisible(false);
+                dispose();
                 new MyProfile(user);
             }
         });
@@ -41,19 +38,20 @@ public class FriendsProfile
             names[i] = String.valueOf((user.getFriends()).get(i));
             JLabel flist = new JLabel(names[i]);
             
-            flist.setPreferredSize(new Dimension(150, 30));
+            flist.setPreferredSize(new Dimension(35, 30));
             gbc.gridx = 0;
             gbc.gridy = y++;
+            gbc.anchor = GridBagConstraints.FIRST_LINE_END;
             jp.add(flist, gbc);
             
             User fname1 = fname[i];
             
-            JButton jb = new JButton("view profile");
+            JButton jb = new JButton("View Profile");
             jb.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                jf.setVisible(false);
-                jf.dispose();
-                new AllProfiles(fname1);
+                setVisible(false);
+                dispose();
+                //new AllProfiles(fname1);
             }
         });
             jb.setPreferredSize(new Dimension(150, 30));
@@ -63,10 +61,9 @@ public class FriendsProfile
         }
         
         
-        jf.add(jp, BorderLayout.CENTER);
-        //jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        jf.setSize(500, 500);
-        jf.setLocationRelativeTo(null);
-        jf.setVisible(true);
+        add(jp, BorderLayout.CENTER);
+        setSize(500, 500);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 }

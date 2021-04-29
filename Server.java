@@ -48,12 +48,15 @@ public class Server {
             FileInputStream fis = new FileInputStream("UserData.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
             totalUsers = (ArrayList<User>) ois.readObject();
+            /*
             totalUsers.add(new User("other", "other", 2001, "other", "other",
                     otherFriends, otherSent, otherReceived, false, otherNotifications, "Other bio",
                     "other@email.com", otherInterests, "public"));
             totalUsers.add(new User("test", "test", 2001, "test", "test",
                     testFriends, testSent, testReceived, false, testNotifications, "Test bio",
                     "test@yahoo.com", testInterests, "public"));
+
+             */
             writeToFile();
 
         } catch (FileNotFoundException | ClassNotFoundException e) {

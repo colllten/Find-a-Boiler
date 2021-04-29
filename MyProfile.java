@@ -11,23 +11,26 @@ import javax.swing.border.Border;
 public class MyProfile extends JFrame {
 
     public MyProfile(User user)  {
-        JFrame jf = new JFrame("My Profile");
+        setTitle("My Profile");
+        setSize(500, 500);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         Border br = BorderFactory.createLineBorder(Color.YELLOW, 5);
-        jf.setTitle("My Profile");
-        jf.setLayout(new BorderLayout());
+        setLayout(new BorderLayout());
+
         JPanel jp = new JPanel();
         GridBagConstraints gbc = new GridBagConstraints();
         jp.setBackground(Color.PINK);
         JButton pic = new JButton("Profile Picture");
-        JButton toreturn = new JButton("return to Main Page");
-        toreturn.setOpaque(true);
-        toreturn.setBackground(Color.CYAN);
-        toreturn.setBorder(br);
-        toreturn.addActionListener(new ActionListener() {
+        JButton toReturn = new JButton("Return to Main Page");
+        toReturn.setOpaque(true);
+        toReturn.setBackground(Color.CYAN);
+        toReturn.setBorder(br);
+        toReturn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    jf.setVisible(false);
-                    jf.dispose();
+                    setVisible(false);
+                    dispose();
                     new MainPage(user);
                 } catch (IOException ioex) {
                     //
@@ -36,7 +39,7 @@ public class MyProfile extends JFrame {
         });
         
         
-        JLabel username = new JLabel("USERNAME : " + user.getUsername());
+        JLabel username = new JLabel(user.getUsername());
         username.setOpaque(true);
         username.setBackground(Color.CYAN);
         username.setBorder(br);
@@ -49,8 +52,8 @@ public class MyProfile extends JFrame {
         friends.setBorder(br);
         friends.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                jf.setVisible(false);
-                jf.dispose();
+                setVisible(false);
+                dispose();
                 new FriendsProfile(user);
                 
             }
@@ -91,20 +94,20 @@ public class MyProfile extends JFrame {
         settings.setBorder(br);
         settings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                jf.setVisible(false);
-                jf.dispose();
+                setVisible(false);
+                dispose();
                 new SettingsFrame(user);
             }
         });
         jp.setLayout(new GridBagLayout());
 
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
         jp.add(pic, gbc);
 
         username.setPreferredSize(new Dimension(150, 50));
         gbc.gridx = 1;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
         jp.add(username, gbc);
 
         aboutMe.setPreferredSize(new Dimension(150, 50));
@@ -155,11 +158,11 @@ public class MyProfile extends JFrame {
         gbc.gridy = 3;
         jp.add(contact, gbc);
         
-        toreturn.setPreferredSize(new Dimension(150, 30));
+        toReturn.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.ipadx = 1;
-        jp.add(toreturn, gbc);
+        jp.add(toReturn, gbc);
         
         settings.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 2;
@@ -167,10 +170,8 @@ public class MyProfile extends JFrame {
         gbc.anchor = GridBagConstraints.FIRST_LINE_END;
         jp.add(settings, gbc);
         
-        jf.add(jp, BorderLayout.CENTER);
-        jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        jf.setSize(500, 500);
-        jf.setLocationRelativeTo(null);
-        jf.setVisible(true);
+        add(jp, BorderLayout.CENTER);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 }

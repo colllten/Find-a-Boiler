@@ -170,4 +170,8 @@ public class User implements Serializable {
         rec.receivedReqs.add(current);
     }
 
+    public String toString() {
+        return String.format(getUsername());
+    }
+
 }

@@ -150,11 +150,12 @@ public class RegisterFrame extends JFrame {
                             }
                             setVisible(false);
                             Server.writeToFile();
+                            LoginFrame lf = new LoginFrame();
                             dispose();
 
                         }
                     }
-                } catch (NumberFormatException ex) {
+                } catch (NumberFormatException | IOException ex) {
                     JOptionPane.showMessageDialog(null, "Year must be an integer", "Year Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
