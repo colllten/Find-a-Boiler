@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
 
+//use ExploreUpdate instead
+@Deprecated
 public class Explore extends JFrame {
 
 	//create new explore object
