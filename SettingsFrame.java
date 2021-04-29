@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class SettingsFrame extends JFrame {
     //TODO: add button to delete account
@@ -96,6 +97,25 @@ public class SettingsFrame extends JFrame {
                 new MyProfile(user);
             }
         });
+
+        JButton delete = new JButton("Delete Account");
+        delete.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int choice = JOptionPane.showConfirmDialog(null, "Warning: This is a destructive action" +
+                        " and you will lose your account's data.\nDo you wish to permanently delete your account?",
+                        "Account Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                if (choice == 0) { // Yes
+                    setVisible(false);
+                    Server.totalUsers.remove(user);
+                    dispose();
+                    try {
+                        new LoginFrame();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+            }
+        });
         //BUTTONS//
 
         // LAYING OUT TEXT FIELDS AND LABELS //
@@ -137,6 +157,8 @@ public class SettingsFrame extends JFrame {
         sp.add(submit, g);
         g.gridy++;
         sp.add(cancel, g);
+        g.gridy++;
+        sp.add(delete, g);
         // LAYING OUT TEXT FIELDS AND LABELS //
 
         add(sp, BorderLayout.CENTER);

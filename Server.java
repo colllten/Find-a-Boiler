@@ -11,6 +11,10 @@ public class Server {
 
     private static final int PORT = 9090;
 
+    public static ArrayList<User> getTotalUsers() {
+        return totalUsers;
+    }
+
     public static void main(String[] args) {
         ArrayList<User> adminFriends = new ArrayList<>();
         ArrayList<User> adminReceived = new ArrayList<>();
