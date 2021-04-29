@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class RegisterFrame extends JFrame {
@@ -162,6 +166,100 @@ public class RegisterFrame extends JFrame {
                 setVisible(false);
                 dispose();
                 Server.writeToFile();
+                try {
+                    LoginFrame lf = new LoginFrame();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        JLabel importPathLabel = new JLabel("File Path: ");
+        JTextField importPathTxt = new JTextField(20);
+        JButton importUser = new JButton("Import CSV");
+        importUser.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String filePath = importPathTxt.getText();
+                    BufferedReader br = new BufferedReader(new FileReader(filePath));
+
+                    String line = br.readLine();
+                    while (line != null) {
+                        String username = "";
+                        String password = "";
+                        int birthYear = 0;
+                        String firstName = "";
+                        String lastName = "";
+                        ArrayList<User> friends = new ArrayList<>();
+                        ArrayList<User> sentReqs = new ArrayList<>();
+                        ArrayList<User> receivedReqs = new ArrayList<>();
+                        boolean isOnline = false;
+                        ArrayList<User> notifications = new ArrayList<>();
+                        String bio = "";
+                        String email = "";
+                        ArrayList<String> interests = new ArrayList<>();
+                        String visibility = "";
+
+                        boolean correctFormat = true;
+                        String[] currentLine = line.split(", ");
+                        if (currentLine[0].equals("Username") && currentLine[1].length() > 2 && currentLine[1].length() < 11) {
+                            username = currentLine[1];
+                        } else if (currentLine[0].equals("Username") && currentLine[1].length() < 2 && currentLine[1].length() > 11){
+                            JOptionPane.showMessageDialog(null, "Username is formatted incorrectly" +
+                                    " formatted", "Username Error", JOptionPane.ERROR_MESSAGE);
+                            correctFormat = false;
+                        }
+                        if (currentLine[2].equals("Password") && currentLine[3].length() > 2 && currentLine[3].length() < 21) {
+                            password = currentLine[3];
+                        } else if (currentLine[2].equals("Password") && currentLine[3].length() < 2 && currentLine[3].length() > 21){
+                            JOptionPane.showMessageDialog(null, "Password is formatted incorrectly",
+                                    "Password Error", JOptionPane.ERROR_MESSAGE);
+                            correctFormat = false;
+                        }
+                        if (currentLine[4].equals("BirthYear") && Integer.parseInt(currentLine[5]) > 0 && Integer.parseInt(currentLine[5]) < 2022) {
+                            birthYear = Integer.parseInt(currentLine[5]);
+                        } else if (currentLine[4].equals("BirthYear") && Integer.parseInt(currentLine[5]) < 0 && Integer.parseInt(currentLine[5]) > 2022){
+                            JOptionPane.showMessageDialog(null, "Birth Year is formatted incorrectly" +
+                                    " formatted", "Birth Year Error", JOptionPane.ERROR_MESSAGE);
+                            correctFormat = false;
+                        }
+                        if (currentLine[6].equals("FirstName")) {
+                            firstName = currentLine[7];
+                        }
+                        if (currentLine[8].equals("LastName")) {
+                            lastName = currentLine[9];
+                        }
+                        if (currentLine[10].equals("Bio")) {
+                            bio = currentLine[11];
+                        }
+                        if (currentLine[12].equals("Email")) {
+                            email = currentLine[13];
+                        }
+                        if (currentLine[14].equals("Visibility")) {
+                            visibility = currentLine[15];
+                        }
+                        if (currentLine[16].equals("Break") && correctFormat) {
+                            Server.totalUsers.add(new User(username, password, birthYear, firstName, lastName, friends,
+                                    sentReqs, receivedReqs, isOnline, notifications,
+                                    bio, email, interests, visibility));
+                            Server.writeToFile();
+                            setVisible(false);
+                            LoginFrame lf = new LoginFrame();
+                            dispose();
+                            break;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "File was generally not formatted" +
+                                    " correctly", "File Format Issue", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        }
+                    }
+
+                } catch (FileNotFoundException fileNotFoundException) {
+                    JOptionPane.showMessageDialog(null, "File cannot be found",
+                            "Undefined File Path", JOptionPane.ERROR_MESSAGE);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
         //REGISTER BUTTONS//
@@ -240,6 +338,19 @@ public class RegisterFrame extends JFrame {
         regPanel.add(submit, gc);
         gc.gridy--;
         regPanel.add(cancel, gc);
+
+        gc.gridx = 0;
+        gc.gridy = 19;
+        gc.anchor = GridBagConstraints.FIRST_LINE_END;
+        regPanel.add(importPathLabel, gc);
+        gc.gridx = 1;
+        gc.gridy = 19;
+        gc.anchor = GridBagConstraints.FIRST_LINE_START;
+        regPanel.add(importPathTxt, gc);
+        gc.gridx = 2;
+        gc.gridy = 19;
+        gc.anchor = GridBagConstraints.CENTER;
+        regPanel.add(importUser, gc);
 
         add(regPanel, BorderLayout.CENTER);
         setLocationRelativeTo(null);

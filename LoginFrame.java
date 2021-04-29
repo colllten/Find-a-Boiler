@@ -91,6 +91,8 @@ public class LoginFrame extends JFrame {
         register.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 RegisterFrame rg = new RegisterFrame();
+                setVisible(false);
+                dispose();
             }
         });
         //LOGIN AND REGISTER BUTTONS//
