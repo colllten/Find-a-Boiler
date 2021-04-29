@@ -3,51 +3,82 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.IOException;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+
 
 public class MyProfile extends JFrame {
 
-    public MyProfile(User user) {
-        setTitle("My Profile");
-        setLayout(new BorderLayout());
+    public MyProfile(User user)  {
+        JFrame jf = new JFrame("My Profile");
+        Border br = BorderFactory.createLineBorder(Color.YELLOW, 5);
+        jf.setTitle("My Profile");
+        jf.setLayout(new BorderLayout());
         JPanel jp = new JPanel();
         GridBagConstraints gbc = new GridBagConstraints();
         jp.setBackground(Color.PINK);
         JButton pic = new JButton("Profile Picture");
-        JLabel username = new JLabel(user.getUsername());
-
-        JLabel aboutMe = new JLabel(user.getBio());
-        JButton friends = new JButton("Friends");
-        //friends.addActionListener(new ActionListener() {
-        //public void actionPerformed(ActionEvent e) {
-        //Object[] namef = new Object[(user.getFriends()).size()];
-        //namef = (u.getFriends()).toArray();
-                /*
-                String[] fname = new String[(user.getFriends()).size()];
-                for (int i = 0; i < (user.getFriends()).size(); i++) {
-                    fname[i] = String.valueOf(namef[i]);
-                }
-                JOptionPane.showMessageDialog(jf, fname);
-
-            }
-        });*/
-
-        JButton interests = new JButton("Interests");
-        /*
-        interests.addActionListener(new ActionListener() {
+        JButton toreturn = new JButton("return to Main Page");
+        toreturn.setOpaque(true);
+        toreturn.setBackground(Color.CYAN);
+        toreturn.setBorder(br);
+        toreturn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Object[] interests = new Object[(u.getFriends()).size()];
-                interests = (u.getFriends()).toArray();
-                String[] intStr = new String[(u.getFriends()).size()];
-                for (int i = 0; i < (u.getFriends()).size(); i++) {
-                    intStr[i] = String.valueOf(interests[i]);
+                try {
+                    jf.setVisible(false);
+                    jf.dispose();
+                    new MainPage(user);
+                } catch (IOException ioex) {
+                    //
                 }
-                JOptionPane.showMessageDialog(jf, intStr);
-
             }
         });
+        
+        
+        JLabel username = new JLabel("USERNAME : " + user.getUsername());
+        username.setOpaque(true);
+        username.setBackground(Color.CYAN);
+        username.setBorder(br);
 
-         */
+        JLabel aboutMe = new JLabel("BIO : " + user.getBio());
+        
+        JButton friends = new JButton("Friends");
+        friends.setOpaque(true);
+        friends.setBackground(Color.CYAN);
+        friends.setBorder(br);
+        friends.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jf.setVisible(false);
+                jf.dispose();
+                new FriendsProfile(user);
+                
+            }
+        });
+        
+        /** String interest ="";
+        for (int i = 0; i < (user.getInterests())Str.size(); i++) {
+            interest = interest + ((user.getInterests()).get(i) + "\n");
+        }  */
+        
+        
+        /**
+        interests.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Object[] interests = new Object[(user.getFriends()).size()];
+                interests = (user.getFriends()).toArray();
+                String[] intStr = new String[(user.getFriends()).size()];
+                for (int i = 0; i < (user.getFriends()).size(); i++) {
+                    intStr[i] = String.valueOf(interests[i]);
+                }
+                JOptionPane.showMessageDialog(null, intStr);
+            }
+        }); */
+         
         JButton contact = new JButton("Contact Info");
+        contact.setOpaque(true);
+        contact.setBackground(Color.CYAN);
+        contact.setBorder(br);
         contact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, user.getEmail(), "Email", JOptionPane.INFORMATION_MESSAGE);
@@ -55,10 +86,13 @@ public class MyProfile extends JFrame {
         });
 
         JButton settings = new JButton("Settings");
+        settings.setOpaque(true);
+        settings.setBackground(Color.CYAN);
+        settings.setBorder(br);
         settings.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                dispose();
+                jf.setVisible(false);
+                jf.dispose();
                 new SettingsFrame(user);
             }
         });
@@ -68,35 +102,75 @@ public class MyProfile extends JFrame {
         gbc.gridy = 0;
         jp.add(pic, gbc);
 
+        username.setPreferredSize(new Dimension(150, 50));
         gbc.gridx = 1;
         gbc.gridy = 1;
         jp.add(username, gbc);
 
+        aboutMe.setPreferredSize(new Dimension(150, 50));
         gbc.gridx = 1;
         gbc.gridy = 2;
         jp.add(aboutMe, gbc);
 
+        friends.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 0;
         gbc.gridy = 3;
+        gbc.ipadx = 1;
         jp.add(friends, gbc);
-
+        
+        String interest = String.valueOf(user.getInterests() + "\n");
+        String[] rest = interest.split(",");
+        JLabel interests;
+        
+        
+        int y = 2;
+        Border b = BorderFactory.createLineBorder(Color.PINK, 3);
+        
+        for(int i = 0; i < (user.getInterests()).size(); i++) {
+            interests = new JLabel((i + 1) + " " +((user.getInterests()).get(i)));
+            interests.setBorder(b);
+            interests.setOpaque(true);
+            interests.setBackground(Color.YELLOW);
+            gbc.gridx = 1;
+            y = y + 1;
+            gbc.gridy = y;
+            
+            jp.add(interests, gbc);
+            
+            
+            
+            //y++;
+        }
+        
+     
+        /**
+        interests.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 1;
         gbc.gridy = 3;
         jp.add(interests, gbc);
+        */
 
+        contact.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 2;
         gbc.gridy = 3;
         jp.add(contact, gbc);
-
-        gbc.gridx = 6;
+        
+        toreturn.setPreferredSize(new Dimension(150, 30));
+        gbc.gridx = 0;
         gbc.gridy = 4;
-        gbc.anchor = GridBagConstraints.LAST_LINE_END;
+        gbc.ipadx = 1;
+        jp.add(toreturn, gbc);
+        
+        settings.setPreferredSize(new Dimension(150, 30));
+        gbc.gridx = 2;
+        gbc.gridy = 4;
+        gbc.anchor = GridBagConstraints.FIRST_LINE_END;
         jp.add(settings, gbc);
-
-        add(jp, BorderLayout.CENTER);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(500, 500);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        
+        jf.add(jp, BorderLayout.CENTER);
+        jf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        jf.setSize(500, 500);
+        jf.setLocationRelativeTo(null);
+        jf.setVisible(true);
     }
 }
