@@ -46,7 +46,7 @@ public class MainPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 dispose();
-                Explore explore = new Explore(user, Server.totalUsers);
+                ExploreUpdate explore = new ExploreUpdate(user);
             }
         });
         panel.add(explore, g);
