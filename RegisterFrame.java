@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class RegisterFrame extends JFrame {
 
@@ -63,6 +64,10 @@ public class RegisterFrame extends JFrame {
 
         JLabel interests = new JLabel("Interests: ");
 
+        JLabel privacy = new JLabel("Privacy: ");
+        String[] options = {"Public", "Protected", "Private"};
+        JComboBox<String> cb = new JComboBox<>(options);
+
         //LABELS & THEIR TEXT FIELDS//
 
         //REGISTER BUTTONS//
@@ -105,7 +110,6 @@ public class RegisterFrame extends JFrame {
                         if (!isTaken) {
                             String bio = bioTxt.getText();
                             String email = emailTxt.getText();
-
                             ArrayList<User> friends = new ArrayList<>();
                             ArrayList<User> sent = new ArrayList<>();
                             ArrayList<User> received = new ArrayList<>();
@@ -141,9 +145,11 @@ public class RegisterFrame extends JFrame {
                             if (hiking.isSelected()) {
                                 interests.add("Hiking");
                             }
+                            String choice = (String) cb.getSelectedItem();
+                            choice = choice.toLowerCase(Locale.ROOT);
                             User user = new User(usernameTxt.getText(), String.valueOf(passwordTxt.getPassword()),
                                     Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(),
-                                    friends, sent, received, false, notifications, bio, email, interests, "public");
+                                    friends, sent, received, false, notifications, bio, email, interests, choice);
                             Server.totalUsers.add(user);
                             for (int j = 0; j < user.getInterests().size(); j++) {
                                 System.out.println(user.getInterests().get(j));
@@ -287,6 +293,8 @@ public class RegisterFrame extends JFrame {
         regPanel.add(bio, gc);
         gc.gridy++;
         regPanel.add(interests, gc);
+        gc.gridy += 5;
+        regPanel.add(privacy, gc);
         //ADDING LABELS//
 
         //ADDING TEXT FIELDS//
@@ -308,7 +316,6 @@ public class RegisterFrame extends JFrame {
         regPanel.add(birthYearTxt, gc);
         gc.gridy++;
         regPanel.add(bioTxt, gc);
-
         gc.gridy++;
         regPanel.add(vg, gc);
         gc.gridy++;
@@ -320,6 +327,8 @@ public class RegisterFrame extends JFrame {
         gc.gridy++;
         regPanel.add(football, gc);
         gc.gridy++;
+        regPanel.add(cb, gc);
+
         gc.gridx++;
         gc.gridy = gc.gridy - 5;
         regPanel.add(basketball, gc);
