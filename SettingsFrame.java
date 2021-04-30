@@ -2,10 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class SettingsFrame extends JFrame {
-    //TODO: add button to delete account
 
     public SettingsFrame(User user) {
         //FRAME CREATION//
@@ -43,21 +44,32 @@ public class SettingsFrame extends JFrame {
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(firstNameTxt.getText().isBlank() || firstNameTxt.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "First name cannot be empty", "Name Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "First name cannot be empty",
+                            "Name Error", JOptionPane.ERROR_MESSAGE);
                 } else if (lastNameTxt.getText().isBlank() || lastNameTxt.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Last name cannot be empty", "Name Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Last name cannot be empty",
+                            "Name Error", JOptionPane.ERROR_MESSAGE);
                 } else if (usernameTxt.getText().isBlank() || usernameTxt.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Username cannot be empty", "Username Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Username cannot be empty",
+                            "Username Error", JOptionPane.ERROR_MESSAGE);
                 } else if (usernameTxt.getText().length() < 3 || usernameTxt.getText().length() > 10) {
-                    JOptionPane.showMessageDialog(null, "Username must be between 3 and 10 characters", "Username Error", JOptionPane.ERROR_MESSAGE);
-                } else if (String.valueOf(newPasswordTxt).isEmpty() || String.valueOf(newPasswordTxt).isBlank() || String.valueOf(confirmNewPasswordTxt).isEmpty() || String.valueOf(confirmNewPasswordTxt).isBlank()) {
-                    JOptionPane.showMessageDialog(null, "Password cannot be empty", "Password Error", JOptionPane.ERROR_MESSAGE);
-                } else if (String.valueOf(newPasswordTxt.getPassword()).length() < 3 || String.valueOf(newPasswordTxt.getPassword()).length() > 20) {
-                    JOptionPane.showMessageDialog(null, "Password length must be between 3 and 20 characters in length", "Password Error", JOptionPane.ERROR_MESSAGE);
-                } else if (!String.valueOf(newPasswordTxt.getPassword()).equals(String.valueOf(confirmNewPasswordTxt.getPassword()))) {
-                    JOptionPane.showMessageDialog(null, "Passwords do not match", "Password Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Username must be between 3 and 10 characters",
+                            "Username Error", JOptionPane.ERROR_MESSAGE);
+                } else if (String.valueOf(newPasswordTxt).isEmpty() || String.valueOf(newPasswordTxt).isBlank() ||
+                        String.valueOf(confirmNewPasswordTxt).isEmpty() || String.valueOf(confirmNewPasswordTxt).isBlank()) {
+                    JOptionPane.showMessageDialog(null, "Password cannot be empty", "Password Error",
+                            JOptionPane.ERROR_MESSAGE);
+                } else if (String.valueOf(newPasswordTxt.getPassword()).length() < 3 ||
+                        String.valueOf(newPasswordTxt.getPassword()).length() > 20) {
+                    JOptionPane.showMessageDialog(null, "Password length must be between 3 and" +
+                            " 20 characters in length", "Password Error", JOptionPane.ERROR_MESSAGE);
+                } else if (!String.valueOf(newPasswordTxt.getPassword()).equals(
+                        String.valueOf(confirmNewPasswordTxt.getPassword()))) {
+                    JOptionPane.showMessageDialog(null, "Passwords do not match",
+                            "Password Error", JOptionPane.ERROR_MESSAGE);
                 } else if (!emailTxt.getText().contains("@") || !emailTxt.getText().contains(".")) {
-                    JOptionPane.showMessageDialog(null, "Email does not contain and '@' or '.'", "Email Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Email does not contain" +
+                            " and '@' or '.'", "Email Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     int counter = 0;
                     while (counter < Server.totalUsers.size()) {
@@ -70,7 +82,8 @@ public class SettingsFrame extends JFrame {
                     boolean isTaken = false;
                     for (int i = 0; i < Server.totalUsers.size(); i++) {
                         if (usernameTxt.getText().equals(Server.totalUsers.get(i).getUsername())) {
-                            JOptionPane.showMessageDialog(null, "Username is already taken", "Password Error", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Username is already taken",
+                                    "Password Error", JOptionPane.ERROR_MESSAGE);
                             isTaken = true;
                         }
                     }
@@ -96,6 +109,22 @@ public class SettingsFrame extends JFrame {
                 setVisible(false);
                 dispose();
                 new MyProfile(user);
+            }
+        });
+
+        JButton export = new JButton("Export");
+        export.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter("exportedUser.txt"));
+                    bw.write("Username, " + user.getUsername() + ", Password, " + user.getPassword() +
+                            ", BirthYear, " + user.getBirthYear() + ", FirstName, " + user.getFirstName() +
+                            ", LastName, " + user.getLastName() + ", Bio, " + user.getBio() + ", Email, " +
+                            user.getEmail() + ", Visibility, " + user.getVisibility() + ", Break");
+                    bw.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 
@@ -162,6 +191,9 @@ public class SettingsFrame extends JFrame {
         sp.add(cancel, g);
         g.gridy++;
         sp.add(delete, g);
+        g.gridy++;
+        g.gridy++;
+        sp.add(export, g);
         // LAYING OUT TEXT FIELDS AND LABELS //
 
         add(sp, BorderLayout.CENTER);
