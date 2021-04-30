@@ -56,12 +56,19 @@ public class ExploreUpdate extends JFrame {
                         explore.setVisible(false);
                         explore.dispose();
                         timer.cancel();
-                        MyProfile profile = new MyProfile(otherUsers.get(finalI));
+                        FriendsProfile profile = new FriendsProfile(otherUsers.get(finalI));
                     }
                 });
 
                 //create a button to send a friend request
-                JButton friendReqButton = new JButton("Send Friend Request");
+                JButton friendReqButton = new JButton();
+                if (u.getSentReqs().contains(user)){
+                    friendReqButton.setText("Sent");
+                    friendReqButton.setEnabled(false);
+                } else {
+                    friendReqButton.setText("Send Friend Request");
+                    friendReqButton.setEnabled(true);
+                }
                 friendReqButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         // NEW FRIEND REQUEST METHOD IN USE //
@@ -194,7 +201,7 @@ public class ExploreUpdate extends JFrame {
                                     explore.setVisible(false);
                                     explore.dispose();
                                     timer.cancel();
-                                    MyProfile profile = new MyProfile(otherUsers.get(finalI));
+                                    FriendsProfile profile = new FriendsProfile(otherUsers.get(finalI));
                                 }
                             });
 
