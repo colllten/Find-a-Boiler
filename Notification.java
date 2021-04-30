@@ -34,6 +34,7 @@ public class Notification extends JFrame {
                         u.removeAccDec(u, pendingUsers.get(finalI));
                         u.getFriends().add(pendingUsers.get(finalI));
                         pendingUsers.get(finalI).getFriends().add(u);
+                        acceptButton.setEnabled(false);
                         Server.writeToFile();
                     }
                 });
@@ -42,6 +43,7 @@ public class Notification extends JFrame {
                 declineButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         u.removeAccDec(u, pendingUsers.get(finalI));
+                        declineButton.setEnabled(false);
                     }
                 });
                 JLabel name = new JLabel(pendingUsers.get(i).getFirstName() + " " + pendingUsers.get(i).getLastName());
@@ -71,6 +73,7 @@ public class Notification extends JFrame {
                 cancelButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         u.cancelNotification(u, sentUsers.get(finalI));
+                        cancelButton.setEnabled(false);
                     }
                 });
 

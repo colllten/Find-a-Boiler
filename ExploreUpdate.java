@@ -76,6 +76,8 @@ public class ExploreUpdate extends JFrame {
                                 // NEW FRIEND REQUEST METHOD IN USE //
                                 System.out.println(user.getUsername() + " friend request");
                                 u.sendFriendReq(u, user);
+                                friendReqButton.setText("Sent");
+                                friendReqButton.setEnabled(false);
                                 System.out.println("Main User sent request" + u.getSentReqs().get(0));
                                 System.out.println("Receiver received: " + user.getReceivedReqs().get(0));
                                 // NEW FRIEND REQUEST METHOD IN USE //

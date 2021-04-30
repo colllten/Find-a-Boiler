@@ -62,6 +62,7 @@ public class MainPage extends JFrame {
         });
         panel.add(notifications, g);
 
+        /*
         g.gridx++;
         JButton friendsList = new JButton("Friends");
         friendsList.addActionListener(new ActionListener() {
@@ -70,6 +71,8 @@ public class MainPage extends JFrame {
             }
         });
         panel.add(friendsList, g);
+
+         */
 
         g.gridx++;
         JButton logout = new JButton("Logout");
