@@ -34,7 +34,7 @@ public class NotificationUpdate extends JFrame {
                     public void actionPerformed(ActionEvent e) {
                         notification.setVisible(false);
                         notification.dispose();
-                        MyProfile profile = new MyProfile(user);
+                        AllProfiles profile = new AllProfiles(user, u);
                         timer.cancel();
                     }
                 });
@@ -64,7 +64,7 @@ public class NotificationUpdate extends JFrame {
                     public void actionPerformed(ActionEvent e) {
                         notification.setVisible(false);
                         notification.dispose();
-                        MyProfile profile = new MyProfile(user);
+                        AllProfiles profile = new AllProfiles(user, u);
                         timer.cancel();
                     }
                 });
@@ -152,7 +152,7 @@ public class NotificationUpdate extends JFrame {
                                 public void actionPerformed(ActionEvent e) {
                                     notification.setVisible(false);
                                     notification.dispose();
-                                    MyProfile profile = new MyProfile(user);
+                                    AllProfiles profile = new AllProfiles(user, u);
                                     timer.cancel();
                                 }
                             });
@@ -184,7 +184,7 @@ public class NotificationUpdate extends JFrame {
                                 public void actionPerformed(ActionEvent e) {
                                     notification.setVisible(false);
                                     notification.dispose();
-                                    MyProfile profile = new MyProfile(user);
+                                    AllProfiles profile = new AllProfiles(user, u);
                                     timer.cancel();
                                 }
                             });
