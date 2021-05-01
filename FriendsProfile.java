@@ -1,4 +1,4 @@
-//this is the one
+//not being able to do dispose on close
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -51,7 +51,7 @@ public class FriendsProfile extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     setVisible(false);
                     dispose();
-                    new AllProfiles(fname1);
+                    new AllProfiles(fname1, user);
                 }
             });
             jb.setPreferredSize(new Dimension(150, 30));
