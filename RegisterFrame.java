@@ -149,19 +149,19 @@ public class RegisterFrame extends JFrame {
                             choice = choice.toLowerCase(Locale.ROOT);
                             User user = new User(usernameTxt.getText(), String.valueOf(passwordTxt.getPassword()),
                                     Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(),
-                                    friends, sent, received, false, notifications, bio, email, interests, choice);
+                                    friends, sent, received, false, notifications, bio, email, interests, choice, new JLabel());
                             Server.totalUsers.add(user);
                             for (int j = 0; j < user.getInterests().size(); j++) {
                                 System.out.println(user.getInterests().get(j));
                             }
                             setVisible(false);
                             Server.writeToFile();
-                            LoginFrame lf = new LoginFrame();
+                            new ProfilePictureFrame(user);
                             dispose();
 
                         }
                     }
-                } catch (NumberFormatException | IOException ex) {
+                } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Year must be an integer", "Year Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -246,12 +246,13 @@ public class RegisterFrame extends JFrame {
                             visibility = currentLine[15];
                         }
                         if (currentLine[16].equals("Break") && correctFormat) {
-                            Server.totalUsers.add(new User(username, password, birthYear, firstName, lastName, friends,
+                            User user = new User(username, password, birthYear, firstName, lastName, friends,
                                     sentReqs, receivedReqs, isOnline, notifications,
-                                    bio, email, interests, visibility));
+                                    bio, email, interests, visibility, new JLabel());
+                            Server.totalUsers.add(user);
                             Server.writeToFile();
                             setVisible(false);
-                            LoginFrame lf = new LoginFrame();
+                            new ProfilePictureFrame(user);
                             dispose();
                             break;
                         } else {

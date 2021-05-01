@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -27,7 +28,7 @@ public class Server {
 
         totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin",
                 adminFriends, adminSent, adminReceived, false, adminNotifications,
-                "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public"));
+                "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public", new JLabel("ProfilePic1.jfif")));
 
         // Test user
         ArrayList<User> testFriends = new ArrayList<>();

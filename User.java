@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -17,10 +18,12 @@ public class User implements Serializable {
     private String email;
     private ArrayList<String> interests;
     private String visibility; //public, private, or protected
+    private JLabel icon; // Profile picture
 
     public User(String username, String password, int birthYear, String firstName, String lastName,
                 ArrayList<User> friends, ArrayList<User> sentReqs, ArrayList<User> receivedReqs, boolean isOnline,
-                ArrayList<User> notifications, String bio, String email, ArrayList<String> interests, String visibility) {
+                ArrayList<User> notifications, String bio, String email, ArrayList<String> interests, String visibility,
+                JLabel icon) {
         this.username = username;
         this.password = password;
         this.birthYear = birthYear;
@@ -35,6 +38,7 @@ public class User implements Serializable {
         this.email = email;
         this.interests = interests;
         this.visibility = visibility;
+        this.icon = icon;
     }
 
     public User() {
@@ -159,10 +163,6 @@ public class User implements Serializable {
 
         int temp = otherUser.getSentReqs().indexOf(mainUser);
         otherUser.getSentReqs().remove(temp);
-
-        for (int j = 0; j < mainUser.friends.size(); i++) {
-            System.out.println("Added / Canceled " + otherUser.getUsername());
-        }
     }
 
     public void sendFriendReq(User current, User rec) {
@@ -174,4 +174,11 @@ public class User implements Serializable {
         return String.format(getUsername());
     }
 
+    public void setIcon(JLabel icon) {
+        this.icon = icon;
+    }
+
+    public JLabel getIcon() {
+        return icon;
+    }
 }

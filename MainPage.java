@@ -57,7 +57,7 @@ public class MainPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 dispose();
-                Notification notification = new Notification(user);
+                NotificationUpdate notification = new NotificationUpdate(user);
             }
         });
         panel.add(notifications, g);

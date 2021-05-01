@@ -74,6 +74,7 @@ public class SettingsFrame extends JFrame {
                     int counter = 0;
                     while (counter < Server.totalUsers.size()) {
                         if (user.getUsername().equals(Server.totalUsers.get(counter).getUsername())) {
+                            Server.writeToFile();
                             break;
                         }
                         counter++;
@@ -85,6 +86,7 @@ public class SettingsFrame extends JFrame {
                             JOptionPane.showMessageDialog(null, "Username is already taken",
                                     "Password Error", JOptionPane.ERROR_MESSAGE);
                             isTaken = true;
+                            Server.writeToFile();
                         }
                     }
                     if (!isTaken) {
@@ -96,6 +98,7 @@ public class SettingsFrame extends JFrame {
                         user.setBio(bioTxt.getText());
                         setVisible(false);
                         dispose();
+                        Server.writeToFile();
                         new MyProfile(user);
                     }
                     Server.totalUsers.add(user);
@@ -107,6 +110,7 @@ public class SettingsFrame extends JFrame {
         cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
+                Server.writeToFile();
                 dispose();
                 new MyProfile(user);
             }
@@ -122,6 +126,7 @@ public class SettingsFrame extends JFrame {
                             ", LastName, " + user.getLastName() + ", Bio, " + user.getBio() + ", Email, " +
                             user.getEmail() + ", Visibility, " + user.getVisibility() + ", Break");
                     bw.close();
+                    Server.writeToFile();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
