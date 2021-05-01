@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
 
+@Deprecated
 public class Notification extends JFrame {
 
     public Notification(User u) {
