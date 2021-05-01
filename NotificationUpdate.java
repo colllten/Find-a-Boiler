@@ -34,7 +34,7 @@ public class NotificationUpdate extends JFrame {
                     public void actionPerformed(ActionEvent e) {
                         notification.setVisible(false);
                         notification.dispose();
-                        FriendsProfile profile = new FriendsProfile(user);
+                        MyProfile profile = new MyProfile(user);
                         timer.cancel();
                     }
                 });
@@ -184,7 +184,7 @@ public class NotificationUpdate extends JFrame {
                                 public void actionPerformed(ActionEvent e) {
                                     notification.setVisible(false);
                                     notification.dispose();
-                                    FriendsProfile profile = new FriendsProfile(user);
+                                    MyProfile profile = new MyProfile(user);
                                     timer.cancel();
                                 }
                             });
