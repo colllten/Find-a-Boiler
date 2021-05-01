@@ -142,6 +142,9 @@ public class SettingsFrame extends JFrame {
                 if (choice == 0) { // Yes
                     setVisible(false);
                     Server.totalUsers.remove(user);
+                    for (int i = 0; i < user.getFriends().size(); i++) {
+                        user.getFriends().get(i).getFriends().remove(user);
+                    }
                     dispose();
                     Server.writeToFile();
                     try {
