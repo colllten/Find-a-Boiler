@@ -56,7 +56,7 @@ public class ExploreUpdate extends JFrame {
                         explore.setVisible(false);
                         explore.dispose();
                         timer.cancel();
-                        MyProfile profile = new MyProfile(otherUsers.get(finalI));
+                        AllProfiles profile = new AllProfiles(otherUsers.get(finalI), u);
                     }
                 });
 
@@ -196,7 +196,7 @@ public class ExploreUpdate extends JFrame {
                                     explore.setVisible(false);
                                     explore.dispose();
                                     timer.cancel();
-                                    MyProfile profile = new MyProfile(otherUsers.get(finalI));
+                                    AllProfiles profile = new AllProfiles(otherUsers.get(finalI), u);
                                 }
                             });
 
