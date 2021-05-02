@@ -15,6 +15,7 @@ public class ExploreUpdate extends JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 u.setOnline(false);
+                Server.writeToFile();
             }
         });
         Timer timer = new Timer();
@@ -173,6 +174,7 @@ public class ExploreUpdate extends JFrame {
                 if (different) {
                     ArrayList<User> otherUsers = new ArrayList<>();
                     otherUsers.addAll(users);
+                    Server.writeToFile();
                     //remove current user and any private users from list of all visible users
                     for (int i = 0; i < users.size(); i++) {
                         String username = u.getUsername();

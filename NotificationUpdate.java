@@ -14,6 +14,7 @@ public class NotificationUpdate extends JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 u.setOnline(false);
+                Server.writeToFile();
             }
         });
         Timer timer = new Timer();

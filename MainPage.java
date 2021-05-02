@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,15 +16,17 @@ public class MainPage extends JFrame {
     JPanel panel;
 
     public MainPage(User user) throws IOException {
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
                 user.setOnline(false);
+                Server.writeToFile();
+                dispose();
             }
         });
+
         //FRAME SETUP//
         setTitle("Welcome " + user.getFirstName());
         setSize(new Dimension(500, 500));
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -51,7 +55,7 @@ public class MainPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 dispose();
-                ExploreUpdate explore = new ExploreUpdate(user);
+                new ExploreUpdate(user);
             }
         });
         panel.add(explore, g);
@@ -67,18 +71,6 @@ public class MainPage extends JFrame {
         });
         panel.add(notifications, g);
 
-        /*
-        g.gridx++;
-        JButton friendsList = new JButton("Friends");
-        friendsList.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // TODO
-            }
-        });
-        panel.add(friendsList, g);
-
-         */
-
         g.gridx++;
         JButton logout = new JButton("Logout");
         logout.addActionListener(new ActionListener() {
@@ -86,6 +78,7 @@ public class MainPage extends JFrame {
                 //ACTUAL CODE//
                 user.setOnline(false);
                 Server.activeUsers.remove(user);
+                Server.writeToFile();
                 setVisible(false);
                 dispose();
                 try {

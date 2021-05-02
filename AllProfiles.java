@@ -9,7 +9,14 @@ import javax.swing.border.Border;
 
 public class AllProfiles extends JFrame {
     public AllProfiles(User user, User currentUser) {
-        setTitle("profile of " + user.getUsername());
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                currentUser.setOnline(false);
+                Server.writeToFile();
+            }
+        });
+        setTitle(user.getUsername() + "'s Profile");
         setLayout(new BorderLayout());
         setSize(500, 500);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
