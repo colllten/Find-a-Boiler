@@ -135,12 +135,11 @@ public class MainPage extends JFrame {
 
 
         //PICTURE//
-        /*
-        BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\ketch\\Pictures\\Screenshots\\mainPageImage.jpg"));
+
+        BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\ketch\\IdeaProjects\\Homework 12\\SoloPJ5\\src\\PurdueLogo.jpg"));
         Image scaledImage = myPicture.getScaledInstance(getWidth() -100, getHeight() -100,Image.SCALE_SMOOTH);
         JLabel picLabel = new JLabel(new ImageIcon(scaledImage));
         add(picLabel, BorderLayout.CENTER);
-         */
         //PICTURE//
 
         add(panel, BorderLayout.NORTH);
