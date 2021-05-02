@@ -1,3 +1,4 @@
+//with profile pic
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
 public class AllProfiles extends JFrame {
+
     public AllProfiles(User user, User currentUser) {
 
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -27,7 +29,8 @@ public class AllProfiles extends JFrame {
         jp.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        JButton pic = new JButton("Profile Picture");
+        JLabel pic;
+        pic = currentUser.getIcon();
         JButton toReturn = new JButton("Return to Main Page");
         toReturn.setOpaque(true);
         toReturn.setBackground(Color.CYAN);
