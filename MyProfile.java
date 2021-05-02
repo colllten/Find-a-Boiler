@@ -14,6 +14,11 @@ public class MyProfile extends JFrame {
         setTitle("My Profile");
         setSize(500, 500);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                user.setOnline(false);
+            }
+        });
 
         Border br = BorderFactory.createLineBorder(Color.YELLOW, 5);
         setLayout(new BorderLayout());

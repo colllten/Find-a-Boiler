@@ -14,6 +14,11 @@ public class MainPage extends JFrame {
     JPanel panel;
 
     public MainPage(User user) throws IOException {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                user.setOnline(false);
+            }
+        });
         //FRAME SETUP//
         setTitle("Welcome " + user.getFirstName());
         setSize(new Dimension(500, 500));
@@ -123,7 +128,7 @@ public class MainPage extends JFrame {
                 if (!usersFound) {
                     JOptionPane.showMessageDialog(null, "User not found", "Not Found", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    SearchFrame sf = new SearchFrame(potentialUsers);
+                    SearchFrame sf = new SearchFrame(potentialUsers, user);
                 }
             }
         });

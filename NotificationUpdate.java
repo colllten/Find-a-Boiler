@@ -11,6 +11,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class NotificationUpdate extends JFrame {
 
     public NotificationUpdate(User u){
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                u.setOnline(false);
+            }
+        });
         Timer timer = new Timer();
         JFrame notification = new JFrame("Notifications");
         notification.setLayout(new BorderLayout());

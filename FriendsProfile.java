@@ -6,6 +6,11 @@ import java.awt.event.*;
 
 public class FriendsProfile extends JFrame {
     public FriendsProfile(User user) {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                user.setOnline(false);
+            }
+        });
         setTitle("Friends");
         setLayout(new BorderLayout());
         setSize(500, 500);

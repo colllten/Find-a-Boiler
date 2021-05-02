@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SearchFrame extends JFrame {
 
-    public SearchFrame (ArrayList<User> users) {
+    public SearchFrame (ArrayList<User> users, User user) {
         //FRAME SETUP//
         setTitle("Possible Users");
         setSize(500, 500);
@@ -13,6 +13,11 @@ public class SearchFrame extends JFrame {
         JPanel foundUsers = new JPanel();
         foundUsers.setLayout(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                user.setOnline(false);
+            }
+        });
         // FRAME SETUP //
 
         //LABEL AND BUTTON SETUP//

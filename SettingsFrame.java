@@ -16,6 +16,12 @@ public class SettingsFrame extends JFrame {
         setSize(500, 500);
         //FRAME CREATION//
 
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                user.setOnline(false);
+            }
+        });
+
         //PANEL CREATION//
         JPanel sp = new JPanel();
         sp.setLayout(new GridBagLayout());
@@ -159,8 +165,22 @@ public class SettingsFrame extends JFrame {
         //BUTTONS//
 
         // LAYING OUT TEXT FIELDS AND LABELS //
-        g.gridx = 0;
+        g.gridx = 1;
         g.gridy = 0;
+        g.anchor = GridBagConstraints.CENTER;
+        JButton changePic = new JButton("Profile Picture");
+        changePic.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Server.writeToFile();
+                new ProfilePictureFrame(user);
+                dispose();
+            }
+        });
+        sp.add(changePic, g);
+
+        g.gridx = 0;
+        g.gridy = 1;
         g.anchor = GridBagConstraints.FIRST_LINE_END;
         sp.add(firstName, g);
         g.gridy++;
@@ -177,7 +197,7 @@ public class SettingsFrame extends JFrame {
         sp.add(bio, g);
 
         g.gridx = 1;
-        g.gridy = 0;
+        g.gridy = 1;
         g.anchor = GridBagConstraints.FIRST_LINE_START;
         sp.add(firstNameTxt, g);
         g.gridy++;

@@ -12,6 +12,11 @@ public class ExploreUpdate extends JFrame {
 
     //create new explore object
     public ExploreUpdate(User u) {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                u.setOnline(false);
+            }
+        });
         Timer timer = new Timer();
         JFrame explore = new JFrame("Explore");
         final ArrayList<User> oldUsers = new ArrayList<>();

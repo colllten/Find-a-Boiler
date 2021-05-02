@@ -11,6 +11,11 @@ public class ProfilePictureFrame extends JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
         setSize(500, 500);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                user.setOnline(false);
+            }
+        });
 
         //PANEL FOR CHOOSING//
         JPanel panel = new JPanel();
@@ -73,6 +78,7 @@ public class ProfilePictureFrame extends JFrame {
                 if (smileyFace.isSelected()) {
                     user.setIcon(pic1);
                     setVisible(false);
+                    Server.writeToFile();
                     try {
                         new LoginFrame();
                     } catch (IOException ioException) {
@@ -82,6 +88,7 @@ public class ProfilePictureFrame extends JFrame {
                 } else if (frownyMike.isSelected()) {
                     user.setIcon(pic2);
                     setVisible(false);
+                    Server.writeToFile();
                     try {
                         new LoginFrame();
                     } catch (IOException ioException) {
@@ -91,6 +98,7 @@ public class ProfilePictureFrame extends JFrame {
                 } else if (woods.isSelected()) {
                     user.setIcon(pic3);
                     setVisible(false);
+                    Server.writeToFile();
                     try {
                         new LoginFrame();
                     } catch (IOException ioException) {
