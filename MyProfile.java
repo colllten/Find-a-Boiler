@@ -1,3 +1,4 @@
+//with profile pic
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,7 +28,8 @@ public class MyProfile extends JFrame {
         JPanel jp = new JPanel();
         GridBagConstraints gbc = new GridBagConstraints();
         jp.setBackground(Color.PINK);
-        JButton pic = new JButton("Profile Picture");
+        JLabel pic;
+        pic = user.getIcon();
         JButton toReturn = new JButton("Return to Main Page");
         toReturn.setOpaque(true);
         toReturn.setBackground(Color.CYAN);
@@ -43,15 +45,15 @@ public class MyProfile extends JFrame {
                 }
             }
         });
-        
-        
+
+
         JLabel username = new JLabel(user.getUsername());
         username.setOpaque(true);
         username.setBackground(Color.CYAN);
         username.setBorder(br);
 
         JLabel aboutMe = new JLabel("BIO : " + user.getBio());
-        
+
         JButton friends = new JButton("Friends");
         friends.setOpaque(true);
         friends.setBackground(Color.CYAN);
@@ -61,29 +63,29 @@ public class MyProfile extends JFrame {
                 setVisible(false);
                 dispose();
                 new FriendsProfile(user);
-                
+
             }
         });
-        
+
         /** String interest ="";
-        for (int i = 0; i < (user.getInterests())Str.size(); i++) {
-            interest = interest + ((user.getInterests()).get(i) + "\n");
-        }  */
-        
-        
+         for (int i = 0; i < (user.getInterests())Str.size(); i++) {
+         interest = interest + ((user.getInterests()).get(i) + "\n");
+         }  */
+
+
         /**
-        interests.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Object[] interests = new Object[(user.getFriends()).size()];
-                interests = (user.getFriends()).toArray();
-                String[] intStr = new String[(user.getFriends()).size()];
-                for (int i = 0; i < (user.getFriends()).size(); i++) {
-                    intStr[i] = String.valueOf(interests[i]);
-                }
-                JOptionPane.showMessageDialog(null, intStr);
-            }
-        }); */
-         
+         interests.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+         Object[] interests = new Object[(user.getFriends()).size()];
+         interests = (user.getFriends()).toArray();
+         String[] intStr = new String[(user.getFriends()).size()];
+         for (int i = 0; i < (user.getFriends()).size(); i++) {
+         intStr[i] = String.valueOf(interests[i]);
+         }
+         JOptionPane.showMessageDialog(null, intStr);
+         }
+         }); */
+
         JButton contact = new JButton("Contact Info");
         contact.setOpaque(true);
         contact.setBackground(Color.CYAN);
@@ -126,15 +128,15 @@ public class MyProfile extends JFrame {
         gbc.gridy = 3;
         gbc.ipadx = 1;
         jp.add(friends, gbc);
-        
+
         String interest = String.valueOf(user.getInterests() + "\n");
         String[] rest = interest.split(",");
         JLabel interests;
-        
-        
+
+
         int y = 2;
         Border b = BorderFactory.createLineBorder(Color.PINK, 3);
-        
+
         for(int i = 0; i < (user.getInterests()).size(); i++) {
             interests = new JLabel((i + 1) + " " +((user.getInterests()).get(i)));
             interests.setBorder(b);
@@ -143,39 +145,39 @@ public class MyProfile extends JFrame {
             gbc.gridx = 1;
             y = y + 1;
             gbc.gridy = y;
-            
+
             jp.add(interests, gbc);
-            
-            
-            
+
+
+
             //y++;
         }
-        
-     
+
+
         /**
-        interests.setPreferredSize(new Dimension(150, 30));
-        gbc.gridx = 1;
-        gbc.gridy = 3;
-        jp.add(interests, gbc);
-        */
+         interests.setPreferredSize(new Dimension(150, 30));
+         gbc.gridx = 1;
+         gbc.gridy = 3;
+         jp.add(interests, gbc);
+         */
 
         contact.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 2;
         gbc.gridy = 3;
         jp.add(contact, gbc);
-        
+
         toReturn.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.ipadx = 1;
         jp.add(toReturn, gbc);
-        
+
         settings.setPreferredSize(new Dimension(150, 30));
         gbc.gridx = 2;
         gbc.gridy = 4;
         gbc.anchor = GridBagConstraints.FIRST_LINE_END;
         jp.add(settings, gbc);
-        
+
         add(jp, BorderLayout.CENTER);
         setLocationRelativeTo(null);
         setVisible(true);
