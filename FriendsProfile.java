@@ -41,6 +41,7 @@ public class FriendsProfile extends JFrame {
         for(int i = 0; i < ((user.getFriends()).size()); i++) {
             String[] names = new String[(user.getFriends()).size()];
             User[] fname = new User[(user.getFriends()).size()];
+            fname[i] = user.getFriends().get(i);
             names[i] = String.valueOf((user.getFriends()).get(i));
             JLabel flist = new JLabel(names[i]);
 
