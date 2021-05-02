@@ -1,4 +1,4 @@
-//not being able to do dispose on close
+//updated one
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
