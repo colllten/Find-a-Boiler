@@ -25,7 +25,7 @@ public class MainPage extends JFrame {
         });
 
         //FRAME SETUP//
-        setTitle("Welcome " + user.getFirstName());
+        setTitle("Welcome " + user.getFirstName() + " | FindABoiler");
         setSize(new Dimension(500, 500));
         setLayout(new BorderLayout());
         panel = new JPanel();
