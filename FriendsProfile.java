@@ -17,7 +17,7 @@ public class FriendsProfile extends JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 user.setOnline(false);
-                Server.writeToFile();
+                Server.writeToFile(); // Data is saved even if server crashes
             }
         });
         setTitle("Friends");
@@ -30,7 +30,7 @@ public class FriendsProfile extends JFrame {
         jp.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        JButton returnto = new JButton("Return to My Profile");
+        JButton returnto = new JButton("Return to My Profile"); 
         returnto.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
@@ -51,7 +51,7 @@ public class FriendsProfile extends JFrame {
             User[] fname = new User[(user.getFriends()).size()];
             fname[i] = user.getFriends().get(i);
             names[i] = String.valueOf((user.getFriends()).get(i));
-            JLabel flist = new JLabel(names[i]);
+            JLabel flist = new JLabel(names[i]); // List of all friends 
 
             flist.setPreferredSize(new Dimension(35, 30));
             gbc.gridx = 0;
@@ -61,12 +61,12 @@ public class FriendsProfile extends JFrame {
 
             User fname1 = fname[i];
 
-            JButton jb = new JButton("View Profile");
+            JButton jb = new JButton("View Profile"); // Button created to view profile
             jb.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     setVisible(false);
                     dispose();
-                    new AllProfiles(fname1, user);
+                    new AllProfiles(fname1, user); // Closes previous frame and displays friend
                 }
             });
             jb.setPreferredSize(new Dimension(150, 30));
