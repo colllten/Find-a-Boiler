@@ -1,5 +1,5 @@
 # Project 5 -- FindABoiler
-## Instructions
+## Instructions:
 ### Setting up the Server
 - Profile pictures will need to be saved onto your computer so they can be displayed by the server. Pick any three
   random pictures from Google and copy their absolute paths and paste them into lines 44, 45, and 46. It is optimal
@@ -65,3 +65,42 @@ contain the specified string they input into the text field. When wanting to exi
 - Ensure that UserData.txt is in your SRC folder
 - Make sure to download any three pictures and enter them into their respective lines
 - If the server is still not booting up correctly, contact glover44@purdue.edu
+
+## Submissons
+- Report Submitted by:
+- Files Submitted to Vocareum by:
+- Video Submitted by:
+
+### Description of each class(functionality and relationship to other classes):
+AllProfiles.java:
+Client.java:
+ExploreUpdate.java:
+FriendsProfile.java:
+LoginFrame.java:
+MainPage.java:
+MyProfile.java:
+NotificationUpdate.java:
+ProfilePictureFrame.java:
+RegisterFrame.java:
+SearchFrame.java:
+Server.java:
+ServerWorker.java:
+SettingsFrame.java:
+User.java:
+
+#### Testing done for each class:
+AllProfiles.java:
+Client.java:
+ExploreUpdate.java:
+FriendsProfile.java:
+LoginFrame.java:
+MainPage.java:
+MyProfile.java:
+NotificationUpdate.java:
+ProfilePictureFrame.java:
+RegisterFrame.java:
+SearchFrame.java:
+Server.java:
+ServerWorker.java:
+SettingsFrame.java:
+User.java:
