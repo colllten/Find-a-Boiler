@@ -8,6 +8,14 @@ import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
+/**
+ * Class for the cureent logged in user's profile and all their information
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 
 public class MyProfile extends JFrame {
 
