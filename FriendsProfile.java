@@ -4,6 +4,14 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.awt.event.*;
 
+/**
+ * Class for all your friends and their information
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 public class FriendsProfile extends JFrame {
     public FriendsProfile(User user) {
         addWindowListener(new java.awt.event.WindowAdapter() {
