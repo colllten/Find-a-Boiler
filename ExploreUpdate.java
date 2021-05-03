@@ -43,16 +43,20 @@ public class ExploreUpdate extends JFrame {
 
         otherUsers.addAll(users);
         
-        for (int i = 0; i < users.size(); i++) {
+        for (int i = 0; i < otherUsers.size(); i++) {
             String username = u.getUsername();
             User user = users.get(i);
             if (username.equals(user.getUsername())){
                 otherUsers.remove(i);
             }
+        }
+        for (int i = 0; i < otherUsers.size(); i++){
+            User user = otherUsers.get(i);
             if (user.getVisibility().equals("private")){
                 otherUsers.remove(i);
             }
-        } // Removes current user and any private users from list of all visible users 
+        }
+        // Removes current user and any private users from list of all visible users 
 
         ArrayList<JPanel> panels = new ArrayList<JPanel>();
         // Creates a JPanel for each user
@@ -184,12 +188,15 @@ public class ExploreUpdate extends JFrame {
                     otherUsers.addAll(users);
                     Server.writeToFile();
                     // Removes current user and any private users from list of all visible users
-                    for (int i = 0; i < users.size(); i++) {
+                    for (int i = 0; i < otherUsers.size(); i++) {
                         String username = u.getUsername();
                         User user = users.get(i);
                         if (username.equals(user.getUsername())){
                             otherUsers.remove(i);
                         }
+                    }
+                    for (int i = 0; i < otherUsers.size(); i++){
+                        User user = otherUsers.get(i);
                         if (user.getVisibility().equals("private")){
                             otherUsers.remove(i);
                         }
