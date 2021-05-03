@@ -18,15 +18,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ExploreUpdate extends JFrame {
 
-    //create new explore object
-    public ExploreUpdate(User u) {
+   
+    public ExploreUpdate(User u) { // Creates new explore object
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 u.setOnline(false);
                 Server.writeToFile();
             }
         });
-        Timer timer = new Timer();
+        Timer timer = new Timer(); // used for automatic refresh of users
         JFrame explore = new JFrame("Explore");
         final ArrayList<User> oldUsers = new ArrayList<>();
 
@@ -42,7 +42,7 @@ public class ExploreUpdate extends JFrame {
         totalFriends.set(u.getFriends().size());
 
         otherUsers.addAll(users);
-        //remove current user and any private users from list of all visible users
+        
         for (int i = 0; i < users.size(); i++) {
             String username = u.getUsername();
             User user = users.get(i);
@@ -52,10 +52,10 @@ public class ExploreUpdate extends JFrame {
             if (user.getVisibility().equals("private")){
                 otherUsers.remove(i);
             }
-        }
+        } // Removes current user and any private users from list of all visible users 
 
         ArrayList<JPanel> panels = new ArrayList<JPanel>();
-        //create a JPanel for each user
+        // Creates a JPanel for each user
         if (otherUsers != null) {
             for (int i = 0; i < otherUsers.size(); i++) {
                 JPanel panel = new JPanel();
@@ -64,7 +64,7 @@ public class ExploreUpdate extends JFrame {
                 int finalI = i;
                 User user = otherUsers.get(i);
 
-                //create button to view user profile
+                // Creates button to view user profile
                 profileButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         explore.setVisible(false);
@@ -74,7 +74,7 @@ public class ExploreUpdate extends JFrame {
                     }
                 });
 
-                //create a button to send a friend request
+                // Creates a button to send a friend request
                 JButton friendReqButton = new JButton();
                 if (u.getSentReqs().contains(user)){
                     friendReqButton.setText("Sent");
@@ -93,12 +93,12 @@ public class ExploreUpdate extends JFrame {
                     }
                 });
 
-                //create a new JLabel to display the user's name
+                // Creates a new JLabel to display the user's name
                 JLabel name = new JLabel(user.getFirstName() + " " + user.getLastName());
                 panel.add(name);
 
-                //if the user is public, add buttons to see their profile and send a friend request...
-                //...if the users aren't already friends
+                // If the user is public, add buttons to see their profile and send a friend request...
+                // ...if the users aren't already friends
                 if (user.getVisibility().equals("public")) {
                     if (user.getFriends().contains(u)) {
                         panel.add(profileButton);
@@ -106,8 +106,8 @@ public class ExploreUpdate extends JFrame {
                         panel.add(profileButton);
                         panel.add(friendReqButton);
                     }
-                    //if the user is private, add a button to send a friend request if users are not friends
-                    //and if they are friends add a button to view profile
+                    // If the user is private, add a button to send a friend request if users are not friends
+                    // and if they are friends add a button to view profile
                 } else if (user.getVisibility().equals("private")){
                     if (user.getFriends().contains(u)) {
                         panel.add(profileButton);
@@ -123,7 +123,7 @@ public class ExploreUpdate extends JFrame {
             }
         }
 
-        //create a JScrollPane to contain all of the JPanels created for each user
+        // Creates a JScrollPane to contain all of the JPanels created for each user
         JPanel panelScroll = new JPanel();
         panelScroll.setLayout(new GridLayout(panels.size(), 1));
 
@@ -134,7 +134,7 @@ public class ExploreUpdate extends JFrame {
         JScrollPane scrollPane = new JScrollPane(panelScroll);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        //add other panels and buttons to make it look pretty and be able to go home
+        // Add other panels and buttons to make it look pretty and be able to go home
         JPanel topPanel = new JPanel();
         JButton home = new JButton("Home");
         home.addActionListener(new ActionListener () {
@@ -158,7 +158,7 @@ public class ExploreUpdate extends JFrame {
             oldUsers.add(users.get(i));
         }
 
-        //creates a new timer task to automatically update the frame
+        // Creates a new timer task to automatically update the frame
         TimerTask task = new TimerTask() {
             public void run() {
                 boolean different = false;
@@ -183,7 +183,7 @@ public class ExploreUpdate extends JFrame {
                     ArrayList<User> otherUsers = new ArrayList<>();
                     otherUsers.addAll(users);
                     Server.writeToFile();
-                    //remove current user and any private users from list of all visible users
+                    // Removes current user and any private users from list of all visible users
                     for (int i = 0; i < users.size(); i++) {
                         String username = u.getUsername();
                         User user = users.get(i);
@@ -196,7 +196,7 @@ public class ExploreUpdate extends JFrame {
                     }
 
                     ArrayList<JPanel> panels = new ArrayList<JPanel>();
-                    //create a JPanel for each user
+                    // Creates a JPanel for each user
                     if (otherUsers != null) {
                         for (int i = 0; i < otherUsers.size(); i++) {
                             JPanel panel = new JPanel();
@@ -205,7 +205,7 @@ public class ExploreUpdate extends JFrame {
                             int finalI = i;
                             User user = otherUsers.get(i);
 
-                            //create button to view user profile
+                            // Creates button to view user profile
                             profileButton.addActionListener(new ActionListener() {
                                 public void actionPerformed(ActionEvent e) {
                                     explore.setVisible(false);
@@ -215,7 +215,7 @@ public class ExploreUpdate extends JFrame {
                                 }
                             });
 
-                            //create a button to send a friend request
+                            // Creates a button to send a friend request
                             JButton friendReqButton = new JButton();
                             if (u.getSentReqs().contains(user)){
                                 friendReqButton.setText("Sent");
@@ -235,12 +235,12 @@ public class ExploreUpdate extends JFrame {
                             });
 
 
-                            //create a new JLabel to display the user's name
+                            // Creates a new JLabel to display the user's name
                             JLabel name = new JLabel(user.getFirstName() + " " + user.getLastName());
                             panel.add(name);
 
-                            //if the user is public, add buttons to see their profile and send a friend request...
-                            //...if the users aren't already friends
+                            // If the user is public, add buttons to see their profile and send a friend request...
+                            // ...if the users aren't already friends
                             if (user.getVisibility().equals("public")) {
                                 if (user.getFriends().contains(u)) {
                                     panel.add(profileButton);
@@ -248,8 +248,8 @@ public class ExploreUpdate extends JFrame {
                                     panel.add(profileButton);
                                     panel.add(friendReqButton);
                                 }
-                                //if the user is private, add a button to send a friend request if users are not friends
-                                //and if they are friends add a button to view profile
+                                // If the user is private, add a button to send a friend request if users are not friends
+                                // and if they are friends add a button to view profile
                             } else if (user.getVisibility().equals("private")){
                                 if (user.getFriends().contains(u)) {
                                     panel.add(profileButton);
@@ -265,7 +265,7 @@ public class ExploreUpdate extends JFrame {
                         }
                     }
 
-                    //create a JScrollPane to contain all of the JPanels created for each user
+                    // Creates a JScrollPane to contain all of the JPanels created for each user
                     JPanel panelScroll = new JPanel();
                     panelScroll.setLayout(new GridLayout(panels.size(), 1));
 
@@ -276,7 +276,7 @@ public class ExploreUpdate extends JFrame {
                     JScrollPane scrollPane = new JScrollPane(panelScroll);
                     scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-                    //add other panels and buttons to make it look pretty and be able to go home
+                    // add other panels and buttons to make it look pretty and be able to go home
                     JPanel topPanel = new JPanel();
                     JButton home = new JButton("Home");
                     home.addActionListener(new ActionListener () {
@@ -303,10 +303,10 @@ public class ExploreUpdate extends JFrame {
                 }
             }
         };
-        //this line is very important: it needs to be after the TimerTask otherwise the position keeps...
-        //... updating every time the frame updates which is annoying
+        // This line is very important: it needs to be after the TimerTask otherwise the position keeps...
+        // ... updating every time the frame updates which is annoying
         explore.setLocationRelativeTo(null);
-        //this schedules the TimerTask to run every 1 second while the explore page is up
+        // This schedules the TimerTask to run every 1 second while the explore page is up
         timer.scheduleAtFixedRate(task, 0, 1000);
     }
 }
