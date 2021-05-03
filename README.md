@@ -14,7 +14,7 @@
   
 - To begin, first run `Server.java` once. It will have a runtime error, but it will have created `UserData.txt` on your
     local computer. This is the file that the program reads and writes objects to, so it is important that it is
-    created by crashing `Server.java first`. It also contains a default login with the username and password as "admin."
+    created by crashing `Server.java` first. It also contains a default login with the username and password as "admin."
   - once it has crashed once, it will be able to run correctly from there on out. No more crashes will occur, if you
   have any questions or cannot get `UserData.txt` to work properly, contact glover44@purdue.edu
     
