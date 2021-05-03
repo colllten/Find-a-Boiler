@@ -7,6 +7,7 @@ import java.io.IOException;
  * Class used for user login on login page that verifies proper login
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
@@ -26,7 +27,6 @@ public class LoginFrame extends JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE); //Temporary (maybe)
         setLayout(new BorderLayout());
         setSize(500, 500);
-       
 
 
         // PANEL CREATION
@@ -34,17 +34,17 @@ public class LoginFrame extends JFrame {
         loginPanel.setLayout(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
         loginPanel.setBackground(Color.LIGHT_GRAY);
-        
+
 
         // LABELS
         username = new JLabel("Username: ");
         password = new JLabel("Password: ");
-  
+
 
         // TEXT FIELDS
         usernameText = new JTextField(10);
         passwordText = new JPasswordField(10);
-      
+
 
         // ADDING LABELS
         g.gridx = 0;
@@ -53,7 +53,7 @@ public class LoginFrame extends JFrame {
         g.gridy++;
         g.gridy++;
         loginPanel.add(password, g);
-        
+
 
         // ADDING TEXT FIELDS
         g.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -62,7 +62,7 @@ public class LoginFrame extends JFrame {
         loginPanel.add(usernameText, g);
         g.gridy++;
         loginPanel.add(passwordText, g);
-       
+
 
         // LOGIN & REGISTER BUTTONS
         loginButton = new JButton("Login");
@@ -72,7 +72,8 @@ public class LoginFrame extends JFrame {
                 User user = new User();
                 boolean loginSuccess = false;
                 for (int i = 0; i < Server.totalUsers.size(); i++) {
-                    if (usernameText.getText().equals(Server.totalUsers.get(i).getUsername()) && String.valueOf(passwordText.getPassword()).equals(Server.totalUsers.get(i).getPassword())) {
+                    if (usernameText.getText().equals(Server.totalUsers.get(i).getUsername()) &&
+                            String.valueOf(passwordText.getPassword()).equals(Server.totalUsers.get(i).getPassword())) {
                         //JOptionPane.showMessageDialog(null, "Login Successful", "Success", JOptionPane.PLAIN_MESSAGE);
                         user = Server.totalUsers.get(i);
                         Server.activeUsers.add(user);
@@ -82,7 +83,8 @@ public class LoginFrame extends JFrame {
                     }
                 }
                 if (!loginSuccess) {
-                    JOptionPane.showMessageDialog(null, "Invalid Username or Password", "Invalid Login", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid Username or Password",
+                            "Invalid Login", JOptionPane.ERROR_MESSAGE);
                 } else {
                     setVisible(false);
                     dispose();
@@ -112,10 +114,10 @@ public class LoginFrame extends JFrame {
         loginPanel.add(loginButton, g);
         g.gridy++;
         loginPanel.add(register, g);
-       
+
 
         setLocationRelativeTo(null);
         this.add(loginPanel, BorderLayout.CENTER);
         setVisible(true);
-}
+    }
 }
