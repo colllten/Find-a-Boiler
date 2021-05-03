@@ -66,40 +66,41 @@ contain the specified string they input into the text field. When wanting to exi
 # Submissons
 - Report Submitted by:
   
-- Files Submitted to Vocareum by:
+- Files Submitted to Vocareum by: Colten Glover, glover44@purdue.edu
   
 - Video Submitted by:
 
 # Description of each class(functionality and relationship to other classes):
-AllProfiles.java:
+### AllProfiles.java:
 
-Client.java:
 
-ExploreUpdate.java:
+### Client.java:
 
-FriendsProfile.java:
+### ExploreUpdate.java:
 
-LoginFrame.java:
+### FriendsProfile.java:
 
-MainPage.java:
+### LoginFrame.java:
 
-MyProfile.java:
+### MainPage.java:
 
-NotificationUpdate.java:
+### MyProfile.java:
 
-ProfilePictureFrame.java:
+### NotificationUpdate.java:
 
-RegisterFrame.java:
+###ProfilePictureFrame.java:
 
-SearchFrame.java:
+###RegisterFrame.java:
 
-Server.java:
+###SearchFrame.java:
 
-ServerWorker.java:
+###Server.java:
 
-SettingsFrame.java:
+###ServerWorker.java:
 
-User.java:
+###SettingsFrame.java:
+
+###User.java:
 
 # Testing done for each class:
 General note: For all the classes marked with a ~, the only method 
