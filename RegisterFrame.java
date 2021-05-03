@@ -159,9 +159,6 @@ public class RegisterFrame extends JFrame {
                                     Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(),
                                     friends, sent, received, false, notifications, bio, email, interests, choice, new JLabel());
                             Server.totalUsers.add(user);
-                            for (int j = 0; j < user.getInterests().size(); j++) {
-                                System.out.println(user.getInterests().get(j));
-                            }
                             setVisible(false);
                             Server.writeToFile();
                             new ProfilePictureFrame(user);
