@@ -2,9 +2,8 @@
 ## Instructions:
 ### Setting up the Server
 - Profile pictures are included in the download and are labeled `ProfilePic1.jfif`, `ProfilePic2.jfif`, and 
-  `ProfilePic3.jfif`so they can be displayed by the server. Copy the absolute paths of ProfilePic1, ProfilePic2, 
-  and ProfilePic3 and paste them into lines 44, 46, and 48. It is optimal that they are saved into the SRC folder 
-  of the project.
+  `ProfilePic3.jfif`so they can be displayed by the server. Copy the absolute paths of `ProfilePic1`, `ProfilePic2`, 
+  and `ProfilePic3` and paste them into lines 44, 46, and 48 of `ProfilePictureFrame.java`
   - Example for ProfilePictureFrame.java lines 44, 46, 48
     - `ImageIcon icon1 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic1.jfif");`
     - `ImageIcon icon2 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic2.jfif");`
