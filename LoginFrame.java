@@ -3,6 +3,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 
+/**
+ * Class used for user login on login page that verifies proper login
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 public class LoginFrame extends JFrame {
     JLabel username;
     JLabel password;
