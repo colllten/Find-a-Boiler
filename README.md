@@ -78,7 +78,8 @@ contain the specified string they input into the text field. When wanting to exi
 ### ExploreUpdate.java:
 
 ### FriendsProfile.java:
-
+This JFrame shows the user's friend's profile once selected. It contains all the information that the user's profile
+specifies but without a settings button. It connects to their own friends, interests, and contact information.
 ### LoginFrame.java:
 This is what is originally called to start the program. Users can either enter in their credentials or register a new
 user. If an incorrect username or password is entered, the user will be notified. Once a successful login occurs,
@@ -89,13 +90,18 @@ from the top bar, and it will take them to the specified page. The user can also
 at the bottom, and it will bring a new frame showing all the users that contain that specified string in their
 username.
 ### MyProfile.java:
+MyProfile shows the user's profile and allows them to check their friends list, contact information, and edit their
+profile through the settings button. Their profile picture is also displayed near the top.
 
 ### NotificationUpdate.java:
 
 ###ProfilePictureFrame.java:
+This is where users select their profile picture, if none is selected, they can go back into their settings and select
+one.
 
 ###RegisterFrame.java:
-
+This is where new users come to register for a new account. It fills in many of the User class's parameters and leads
+them to choose their profile picture.
 ###SearchFrame.java:
 
 ###Server.java:
