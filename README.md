@@ -103,32 +103,114 @@ SettingsFrame.java:
 User.java:
 
 # Testing done for each class:
-AllProfiles.java:
+General note: For all the classes marked with a ~, the only method 
+is a constructor, and the failing test for those constructors is to enter 
+a null user into the parameters for the constructor. However, this will not 
+happen during the running of the program, as the automatic updates remove any
+deleted accounts and null users aren't created at any time.
+
+~AllProfiles.java:
+For this class the passing case is when AllProfiles(user) is called with a 
+valid user. This occurs any time within the program where you click on a 
+"View Profile" button. For example, go into the explore page, find a user, and
+click on "View Profile", and it will call on AllProfiles(user) with the specific
+user.
 
 Client.java:
+For this class the passing case is when the Server is running, and the user
+runs the Client main method. This will create the server-client connection, create a 
+thread, and call the login page. The failing case for this class is when the Server is not
+running when the Client main method runs and therefore no server-client connection can 
+be established.
 
-ExploreUpdate.java:
+~ExploreUpdate.java:
+For this class the passing case is when the class is called within the GUI. Do this
+by running the Server and the Client, logging in, and clicking on the "Explore" tab.
+This will run ExploreUpdate, which displays all the users other than the current user
+and updates automatically with new information.
 
-FriendsProfile.java:
+~FriendsProfile.java:
+For this class the passing case is when the class is called within the GUI. 
+Do this by running the Server and the Client, logging in, going to "My Profile", 
+and clicking on "Friends". This will call the constructor for FriendsProfile, 
+which displays a list of all the user's friends with links to view all of their
+profiles and to go back to the current user's profile.
 
 LoginFrame.java:
+For this class the passing case is when the class is called from the Client.
+Do this by running the Server then running the Client, and the login page will appear,
+as set by the constructor for LoginFrame. There are invalid inputs to test on the 
+login page. Test these by entering an invalid username or an invalid password, then click 
+on the "Login" button. There will be a GUI displayed that informs the user that 
+the information they entered was incorrect.
 
-MainPage.java:
+~MainPage.java:
+For this class the passing case is when the class is called within the GUI.
+Do this by running the Server and the Client, and logging in. This will call the constructor for MainPage,
+which is the main landing page to navigate to other pages. 
 
-MyProfile.java:
+~MyProfile.java:
+For this class the passing case is when MyProfile is called with a
+valid user. This occurs any time within the program where you click on the
+"My Profile" button. Do this by running the Server and the Client, logging in, then
+clicking on "My Profile" in the top of the main page. 
 
-NotificationUpdate.java:
+~NotificationUpdate.java:
+For this class the passing case is when NotificationUpdate is called within
+the GUI. Do this by running the Server and the Client, logging in, then
+clicking on "Notifications" in the top of the main page.
 
 ProfilePictureFrame.java:
+For this class the passing case is when creating a new user. Do this by 
+running the server and the client, then on the login page, select "Register". Fill
+out all the information as appropriate, then select "Submit". This will take you to 
+the ProfilePictureFrame, which prompts you to select your profile picture. Select a 
+profile picture, then select "Submit" again. The failing case follows the same format, except
+this time don't select a profile picture, then try hitting "Submit". An error message will
+appear telling you that you need to select a profile picture, and it won't let you continue
+until you select one.
 
 RegisterFrame.java:
+For this class the passing case is when creating a new user. Do this by
+running the server and the client, then on the login page, select "Register". Fill out 
+all the information using correct inputs. For example, when entering an email, enter an actual
+email address, then select "Submit", and a new user will be created with that information. The
+failing case follows a similar format, but the program requires that some information
+is correct. For example, the text in the password input and in the repeat password input need to match.
+Try making the passwords not match, and an error message will appear telling you
+that the passwords need to match.
 
 SearchFrame.java:
+The passing case for this class is when searching for a user that exists. Do this
+by logging in to an account other than "admin", then clicking on the search bar and typing in 
+"admin". The admin user will show up here. The failing case is when the user being searched for
+does not exist. Do this by entering a user that doesn't exist, such as "obama",
+assuming no Obama user has been created. No users will show up and the searchFrame will let you 
+know that the user you are searching for does not exist.
 
 Server.java:
+This will fail the first time it runs. It does not take in any inputs, so every time
+it writes to UserData.txt. The first time the code runs, UserData.txt does not exist,
+so it fails. However, it then creates the file, so the next time the server is run, it will work.
+The passing test would be any time it runs after the first time.
 
 ServerWorker.java:
+This will pass the test any time it runs. The only time it would fail is if there is
+an interrupted exception, which is hard to replicate. 
 
 SettingsFrame.java:
+The passing case for this class is when editing a user and entering correct inputs. Do this by
+logging in, then going to "My Profile", then clicking on "Settings". For example, when entering a new email, 
+enter an actual  email address, then select "Submit", and the user will be modified with that information. The
+failing case follows a similar format, but the program requires that some information
+is correct. For example, the text in the password input and in the repeat password input need to match.
+Try making the passwords not match, and an error message will appear telling you
+that the passwords need to match.
 
 User.java:
+All the tests for User.java and all of its methods are in the RunLocalTest.java
+class. To test these methods, simply run RunLocalTest.java. The error messages
+will display for the failing cases and nothing will display for the passing cases.
+One thing to note about these, is that all the failing cases were made using a null user,
+which will never happen in the program due to the automatic updating which gets rid of
+the displays for any user that doesn't exist anymore.
