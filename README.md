@@ -219,6 +219,7 @@ the displays for any user that doesn't exist anymore.
 Intro (entire group)
 Hi, (introducing ourselves) and today we’ll be introducing you to (FindABoiler)!
 (Wide shot, all people in frame, ending cut to still/vid of project)(s1)
+
 Overall pitch: Brayden, Colten
 Brayden: As much as we may hate it, we all have to work, but aren’t you tired of those “typical” business oriented social sites. 
 Colten: Typical business oriented social media sites are full of clutter, offer way too many unneeded features, and overall support bigger business and companies, instead of you as a consumer.
@@ -229,6 +230,7 @@ Colten: Welcome to (FindABoiler)
 (wide shot, Colten and Brayden in frame discussing)(s2)
 Intro to program page
 (pan into computer/screen recording) (s3)
+
 Demo of required funct: Sud, Colten, Japneet
 Colton:  (imported video of creating an account) (FindABoiler) is a social media platform, this means, you need to be social (import creation). The first step to joining (FindABoiler) is creating an account. Don't worry though, if for whatever reason you want to leave (FindABoiler), you can edit or even delete your account at any time. We see the login page when first loading the program, we create an account and sign in to access our program. All identifiers we maintain for the users are unique. This allows users to have individual user accounts without risk of lost or disrupted data.
 Brayden or Sud: After creating an account to access our program, you can start creating profiles. Again, don't worry, you can create, edit, and even delete your profile at any time. For security measures, you can edit or delete your own profile, but you cannot edit or delete any other profiles that are not based on your account. After creating your profile, you can begin editing it. Your profile must contain an about me section, so visitors can get a better idea about yourself. Your profile must also contain contact information, your likes or interests, and a friends list. 
@@ -252,6 +254,7 @@ Sud: Another test case that we performed takes place during registration. The em
 Jeff: Another way we have assured the best functionality for our users is through the implementation of birth year requiring an integer input. This assures the system that a number is being inputted. 
 Brayden: Another way we have tested our program is that in the eventuality that a user attempts to create a username that is already taken, the user will receive an error message that prompts them to pick another username.
 Sud: Our last test case we performed for our users optimal experience, is that in the eventuality that a user attempts to search a username that doesn’t exist, they will receive an error message. 
+
 Q&A: Colten, Jeff, Japneet
 Japneet: A question we might be asked would be how do we ensure safety for our users? Our response to this is that not only do we have private profiles, but the way our data is saved and imported to the server, it is mandatory that you provide accurate login information, as well as the ability to rescind or deny friend requests in the event that our profile is private. 
 Jeff: Another question we might be asked is how do we ensure that a user will not only always have access to their profiles, but will have their data saved indefinitely unless they themselves terminate their account. Our response is that all data is saved through our server and it is converted to text files. This means that all a user will need to do is input their correct username and password, and they will have full access to their account, regardless of how long it has been since the account was last accessed. However, if they delete their account, the information will be purged from our servers.
