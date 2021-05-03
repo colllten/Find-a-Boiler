@@ -218,41 +218,63 @@ the displays for any user that doesn't exist anymore.
 # Script
 Intro (entire group)
 Hi, (introducing ourselves) and today we’ll be introducing you to (FindABoiler)!
+
 (Wide shot, all people in frame, ending cut to still/vid of project)(s1)
 
 Overall pitch: Brayden, Colten
 Brayden: As much as we may hate it, we all have to work, but aren’t you tired of those “typical” business oriented social sites. 
+
 Colten: Typical business oriented social media sites are full of clutter, offer way too many unneeded features, and overall support bigger business and companies, instead of you as a consumer.
+
 Brayden: Exactly! That's why we created (FindABoiler)! (FindABoiler) is a simplistic and streamlined business social media platform, designed for you.
+
 Brayden: So without further adieu, 
+
 Brayden: Welcome to (FindABoiler)
 Colten: Welcome to (FindABoiler)
+
 (wide shot, Colten and Brayden in frame discussing)(s2)
 Intro to program page
 (pan into computer/screen recording) (s3)
 
 Demo of required funct: Sud, Colten, Japneet
 Colton:  (imported video of creating an account) (FindABoiler) is a social media platform, this means, you need to be social (import creation). The first step to joining (FindABoiler) is creating an account. Don't worry though, if for whatever reason you want to leave (FindABoiler), you can edit or even delete your account at any time. We see the login page when first loading the program, we create an account and sign in to access our program. All identifiers we maintain for the users are unique. This allows users to have individual user accounts without risk of lost or disrupted data.
+
 Brayden or Sud: After creating an account to access our program, you can start creating profiles. Again, don't worry, you can create, edit, and even delete your profile at any time. For security measures, you can edit or delete your own profile, but you cannot edit or delete any other profiles that are not based on your account. After creating your profile, you can begin editing it. Your profile must contain an about me section, so visitors can get a better idea about yourself. Your profile must also contain contact information, your likes or interests, and a friends list. 
+
 Colten: After creating and filling out your profile, you can begin to create friends lists of other users on (FindABoiler). Once you find someone you want to friend, you can send them a friend request. The users will become friends automatically, unless the recipient of the request is private. If the recipient is private, the friend request will have to be accepted. 
+
 Brayden: Here we have updated the friend request functionality (import required funct here) Users can see a list of their sent and received friend requests here. They can then deny them or confirm them. If the sender decides to rescind the friend request before the recipient has accepted it, the notification will no longer appear for the recipient or the sender. If a friend request is accepted, the notification will no longer appear for the sender or the recipient. Outside of sending requests to specific friends, users are able to view a list of (FindABoilers) users, and are able to send friend requests or requests to view their profile. 
+
 Sud: Due to (FindABoiler) being a Business oriented professionally driven Social Media program, we needed to create a server to host it so multiple clients could connect at one time. This allows updates of individual programs to be modified, updated, and viewed in real time.
+
 Colten: These actions and all other user interactions, as seen here (import video of preformed funct) are GUI based. We did this due to the obvious necessity of needing a graphic interface to display the program.
+
 Sud: As we can see here (import video of preformed funct), the active data being accessed persists, whether or not a user is connected. This allows users to stay updated with the server, regardless if they are presently active on the program. If a user disconnects, their data is still available and accessible. 
+
 Colten: Descriptive errors within the program appear as appropriate, as we can see here (import video of required funct), this will also not crash.
+
 Japneet: All profile information imported is saved. This is done by converting the information to an importable and exportable csv file
  
  
-Demo of optional feat: Japneet
+Demo of optional feat: Japneet and Brayden
 Brayden: Along with the required features of our social platform, we have also imported a way to see if a user is online.(import video required funct here)
+
 Japneet: Another feature we have added is the ability to add profile pictures. We thought that although this isn't a necissity, it is important that users have yet another form of identification and customization. 
+
 Japneet: Another feature we’re proud of at FindABoiler is the ability to have a private or protected profile. This feature allows users to set their profiles as unviewable to others, or private with accessibility strictly to the users friends.
+
 Explanation of testing: Jeff, Brayden, Sud
 Jeff: Our first test case is improper username and password upon login. If a user attempts to login with an invalid username or password, the user will receive an error message, as we can see here. 
+
 Brayden: Our next test case is during registration. A user must input the same password twice, otherwise they will be thrown an error message. 
+
 Sud: Another test case that we performed takes place during registration. The email a user inputs must contain an @ symbol, followed by more characters, one of which must be a period. This assures us and users that the email they provide is correct. 
+
 Jeff: Another way we have assured the best functionality for our users is through the implementation of birth year requiring an integer input. This assures the system that a number is being inputted. 
+
 Brayden: Another way we have tested our program is that in the eventuality that a user attempts to create a username that is already taken, the user will receive an error message that prompts them to pick another username.
+
 Sud: Our last test case we performed for our users optimal experience, is that in the eventuality that a user attempts to search a username that doesn’t exist, they will receive an error message. 
 
 Q&A: Colten, Jeff, Japneet
