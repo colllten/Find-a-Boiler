@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Class that has information common across all users
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
@@ -142,11 +143,11 @@ public class User implements Serializable {
         isOnline = online;
     }
 
-    public String getVisibility(){
+    public String getVisibility() {
         return this.visibility;
     }
 
-    public void setVisibility(String visibility){
+    public void setVisibility(String visibility) {
         this.visibility = visibility;
     }
 
