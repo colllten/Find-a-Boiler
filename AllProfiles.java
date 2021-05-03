@@ -9,7 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
 /**
- * Class for for all profiles on avalible to view
+ * Class for for all profiles avalible to view
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
