@@ -145,7 +145,7 @@ public class MainPage extends JFrame {
         Image scaledImage = myPicture.getScaledInstance(getWidth() -100, getHeight() -100,Image.SCALE_SMOOTH);
         JLabel picLabel = new JLabel(new ImageIcon(scaledImage));
         add(picLabel, BorderLayout.CENTER);
-        
+
          */
         
 

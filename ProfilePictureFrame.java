@@ -41,9 +41,9 @@ public class ProfilePictureFrame extends JFrame {
         JRadioButton woods = new JRadioButton("#3");
         group.add(woods);
 
-        ImageIcon icon1 = new ImageIcon("ProfilePic1.jfif");
-        ImageIcon icon2 = new ImageIcon("ProfilePic2.jfif");
-        ImageIcon icon3 = new ImageIcon("ProfilePic3.jfif");
+        ImageIcon icon1 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\Solo PJ5\\src\\ProfilePic1.jfif");
+        ImageIcon icon2 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\Solo PJ5\\src\\ProfilePic2.jfif");
+        ImageIcon icon3 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\Solo PJ5\\src\\ProfilePic3.jfif");
 
         Image image = icon1.getImage();
         Image newImage = image.getScaledInstance(75, 75, Image.SCALE_SMOOTH);
