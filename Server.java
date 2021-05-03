@@ -26,9 +26,7 @@ public class Server {
         adminInterests.add("Singing");
         //Admin Login
 
-        totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin",
-                adminFriends, adminSent, adminReceived, false, adminNotifications,
-                "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public", new JLabel("ProfilePic1.jfif")));
+
 
         // Test user
         ArrayList<User> testFriends = new ArrayList<>();
@@ -49,6 +47,20 @@ public class Server {
             FileInputStream fis = new FileInputStream("UserData.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
             totalUsers = (ArrayList<User>) ois.readObject();
+
+            boolean isTaken = false;
+            for (int i = 0; i < totalUsers.size(); i++) {
+                if (totalUsers.get(i).getUsername().equals("admin")) {
+                    isTaken = true;
+                }
+            }
+            if (!isTaken) {
+                totalUsers.add(new User("admin", "admin", 0, "Admin", "Admin",
+                        adminFriends, adminSent, adminReceived, false, adminNotifications,
+                        "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public",
+                        new JLabel("ProfilePic1.jfif")));
+            }
+
             /*
             totalUsers.add(new User("other", "other", 2001, "other", "other",
                     otherFriends, otherSent, otherReceived, false, otherNotifications, "Other bio",
@@ -58,6 +70,7 @@ public class Server {
                     "test@yahoo.com", testInterests, "public"));
 
              */
+
             writeToFile();
 
         } catch (FileNotFoundException | ClassNotFoundException e) {
