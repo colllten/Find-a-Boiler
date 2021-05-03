@@ -95,6 +95,8 @@ MyProfile shows the user's profile and allows them to check their friends list, 
 profile through the settings button. Their profile picture is also displayed near the top.
 
 ### NotificationUpdate.java:
+Shows all received and sent friend requests and to whom they are going to. Users are given the options to accept, 
+decline, or cancel a friend request. Users may also check out the sender's profile.
 
 ###ProfilePictureFrame.java:
 This is where users select their profile picture, if none is selected, they can go back into their settings and select
@@ -104,7 +106,8 @@ one.
 This is where new users come to register for a new account. It fills in many of the User class's parameters and leads
 them to choose their profile picture.
 ###SearchFrame.java:
-
+The user's specified string is compared to every user's username to see if it contains that string. If true, it adds
+it to the window, and a button next to their name to take the user to that profile.
 ###Server.java:
 
 ###ServerWorker.java:
