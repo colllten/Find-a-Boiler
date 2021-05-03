@@ -1,6 +1,6 @@
 # Project 5 -- FindABoiler
 ## Instructions
-###Setting up the Server
+### Setting up the Server
 - Profile pictures will need to be saved onto your computer so they can be displayed by the server. Pick any three
   random pictures from Google and copy their absolute paths and paste them into lines 44, 45, and 46. It is optimal
   that they are saved into the SRC folder of the project.Then on line 61:37 in Server.java, insert the file name of
