@@ -73,11 +73,13 @@ contain the specified string they input into the text field. When wanting to exi
 
 # Description of each class(functionality and relationship to other classes):
 ### AllProfiles.java:
-
+The profile frame that is displayed for any user that is public. It is very similar to the `MyProfile.java`, just
+without the settings button
 ### Client.java:
-
+How the user interacts with the server.
 ### ExploreUpdate.java:
-
+Where users can view all the public and protected users on the platform. Private users are hidden, and protected users'
+profiles cannot be sent requests, but they themselves can send the requests.
 ### FriendsProfile.java:
 This JFrame shows the user's friend's profile once selected. It contains all the information that the user's profile
 specifies but without a settings button. It connects to their own friends, interests, and contact information.
@@ -93,15 +95,12 @@ username.
 ### MyProfile.java:
 MyProfile shows the user's profile and allows them to check their friends list, contact information, and edit their
 profile through the settings button. Their profile picture is also displayed near the top.
-
 ### NotificationUpdate.java:
 Shows all received and sent friend requests and to whom they are going to. Users are given the options to accept, 
 decline, or cancel a friend request. Users may also check out the sender's profile.
-
 ###ProfilePictureFrame.java:
 This is where users select their profile picture, if none is selected, they can go back into their settings and select
 one.
-
 ###RegisterFrame.java:
 This is where new users come to register for a new account. It fills in many of the User class's parameters and leads
 them to choose their profile picture.
@@ -109,13 +108,14 @@ them to choose their profile picture.
 The user's specified string is compared to every user's username to see if it contains that string. If true, it adds
 it to the window, and a button next to their name to take the user to that profile.
 ###Server.java:
-
+Handles all the incoming clients and spawns a thread for each of them.
 ###ServerWorker.java:
-
+Takes care of what the client requests and works with that client individually.
 ###SettingsFrame.java:
-
+Allows the user to edit most of their account's details and has the same error-handling as the registration frame to 
+ensure the user has correctly formatted their credentials.
 ###User.java:
-
+Defines what makes up a user. They must have a full name, email, birth year, username, password, and so on.
 # Testing done for each class:
 ### General note: 
 For all the classes marked with a "~", the only method 
