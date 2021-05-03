@@ -83,7 +83,7 @@ public class MainPage extends JFrame {
         JButton logout = new JButton("Logout");
         logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //ACTUAL CODE//
+                // ACTUAL CODE
                 user.setOnline(false);
                 Server.activeUsers.remove(user);
                 Server.writeToFile();
@@ -97,10 +97,9 @@ public class MainPage extends JFrame {
             }
         });
         panel.add(logout, g);
+        // BUTTONS FOR USER TO INTERACT WITH
 
-        //BUTTONS//
-
-        //SEARCH FUNCTION//
+        // SEARCH FUNCTION
         JPanel searchPanel = new JPanel();
         searchPanel.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -136,19 +135,17 @@ public class MainPage extends JFrame {
 
         searchPanel.add(searchBar, gc);
         add(searchPanel, BorderLayout.SOUTH);
-
-
-        //SEARCH FUNCTION//
+        // SEARCH FUNCTION
 
 
 
-        //PICTURE//
+        // PICTURE
 
         BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\ketch\\IdeaProjects\\Homework 12\\SoloPJ5\\src\\PurdueLogo.jpg"));
         Image scaledImage = myPicture.getScaledInstance(getWidth() -100, getHeight() -100,Image.SCALE_SMOOTH);
         JLabel picLabel = new JLabel(new ImageIcon(scaledImage));
         add(picLabel, BorderLayout.CENTER);
-        //PICTURE//
+        
 
         add(panel, BorderLayout.NORTH);
         setLocationRelativeTo(null);
