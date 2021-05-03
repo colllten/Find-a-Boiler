@@ -2,6 +2,14 @@ import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Class that has information common across all users
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 public class User implements Serializable {
 
     private String username;
