@@ -20,55 +20,55 @@ public class LoginFrame extends JFrame {
     JButton register;
 
     public LoginFrame() throws IOException {
-        //FRAME CREATION//
+        // FRAME CREATION
         setTitle("Login");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE); //Temporary (maybe)
         setLayout(new BorderLayout());
         setSize(500, 500);
-        //FRAME CREATION//
+       
 
 
-        //PANEL CREATION//
+        // PANEL CREATION
         JPanel loginPanel = new JPanel();
         loginPanel.setLayout(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
         loginPanel.setBackground(Color.LIGHT_GRAY);
-        //PANEL CREATION//
+        
 
-        //LABELS//
+        // LABELS
         username = new JLabel("Username: ");
         password = new JLabel("Password: ");
-        //LABELS//
+  
 
-        //TEXT FIELDS//
+        // TEXT FIELDS
         usernameText = new JTextField(10);
         passwordText = new JPasswordField(10);
-        //TEXT FIELDS//
+      
 
-        //ADDING LABELS//
+        // ADDING LABELS
         g.gridx = 0;
         g.anchor = GridBagConstraints.FIRST_LINE_END;
         loginPanel.add(username, g);
         g.gridy++;
         g.gridy++;
         loginPanel.add(password, g);
-        //ADDING LABELS//
+        
 
-        //ADDING TEXT FIELDS//
+        // ADDING TEXT FIELDS
         g.anchor = GridBagConstraints.FIRST_LINE_START;
         g.gridx = 1;
         g.gridy = 0;
         loginPanel.add(usernameText, g);
         g.gridy++;
         loginPanel.add(passwordText, g);
-        //ADDING TEXT FIELDS//
+       
 
-        //LOGIN & REGISTER BUTTONS//
+        // LOGIN & REGISTER BUTTONS
         loginButton = new JButton("Login");
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //CHECKING SERVER IF USERNAME IS THERE//
+                // CHECKS SERVER IF USERNAME IS THERE
                 User user = new User();
                 boolean loginSuccess = false;
                 for (int i = 0; i < Server.totalUsers.size(); i++) {
@@ -103,16 +103,16 @@ public class LoginFrame extends JFrame {
                 dispose();
             }
         });
-        //LOGIN AND REGISTER BUTTONS//
+        // LOGIN AND REGISTER BUTTONS
 
-        //ADDING LOGIN & REGISTER BUTTONS//
+        // ADDING LOGIN & REGISTER BUTTONS
         g.anchor = GridBagConstraints.CENTER;
         g.gridx = 1;
         g.gridy = 2;
         loginPanel.add(loginButton, g);
         g.gridy++;
         loginPanel.add(register, g);
-        //ADDING LOGIN & REGISTER BUTTONS//
+       
 
         setLocationRelativeTo(null);
         this.add(loginPanel, BorderLayout.CENTER);
