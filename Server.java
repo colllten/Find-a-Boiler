@@ -4,6 +4,15 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/**
+ * Server class that allows us to run program
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 public class Server {
 
     public static ArrayList<User> totalUsers = new ArrayList<>();
@@ -65,6 +74,7 @@ public class Server {
             System.err.println("IOE #2 in Server");
         }
     }
+
     public static void writeToFile() {
         try {
             FileOutputStream fos = new FileOutputStream(new File("UserData.txt"));
