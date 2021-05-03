@@ -1,17 +1,15 @@
 # Project 5 -- FindABoiler
 ## Instructions:
 ### Setting up the Server
-- Profile pictures will need to be saved onto your computer so they can be displayed by the server. Pick any three
-  random pictures from Google and copy their absolute paths and paste them into lines 44, 45, and 46. It is optimal
-  that they are saved into the SRC folder of the project.Then on line 61:37 in Server.java, insert the file name of
-  whatever profile picture the admin login will have.
+- Profile pictures are included in the download and are labeled `ProfilePic1.jfif`, `ProfilePic2.jfif`, and 
+  `ProfilePic3.jfif`so they can be displayed by the server. Copy the absolute paths of ProfilePic1, ProfilePic2, 
+  and ProfilePic3 and paste them into lines 44, 46, and 48. It is optimal that they are saved into the SRC folder 
+  of the project.
   - Example for ProfilePictureFrame.java lines 44, 46, 48
     - `ImageIcon icon1 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic1.jfif");`
     - `ImageIcon icon2 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic2.jfif");`
     -  `ImageIcon icon3 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic3.jfif");`
     
-  - Example for Server.java 61:37
-    - `new JLabel("ProfilePic1.jfif")));`
 - Comments will be under these lines for clarity, reading `//GRADER: ...`
     
   
@@ -60,47 +58,77 @@ contain the specified string they input into the text field. When wanting to exi
   red X at the top of your frame, bringing you back to the main page
   
 # Troubleshooting 
-- Ensure that UserData.txt is in your SRC folder
-- Make sure to download any three pictures and enter them into their respective lines
+- Ensure that UserData.txt exists after the first attempt at running the server is over
+- Make sure the three profile pictures are downloaded and their absolute file paths have been copied into their
+  respective lines
   - Absolute paths must be pasted into the specified lines in `ProfilePictureFrame.java`
-  - Only the picture's file name will be needed for adding in the admin's profile picture in `Server.java`
   - See "Setting Up the Server" above for clarity
 - If the server is still not booting up correctly, contact glover44@purdue.edu
 # Submissons
 - Report Submitted by:
+  
 - Files Submitted to Vocareum by:
+  
 - Video Submitted by:
 
 # Description of each class(functionality and relationship to other classes):
 AllProfiles.java:
+
 Client.java:
+
 ExploreUpdate.java:
+
 FriendsProfile.java:
+
 LoginFrame.java:
+
 MainPage.java:
+
 MyProfile.java:
+
 NotificationUpdate.java:
+
 ProfilePictureFrame.java:
+
 RegisterFrame.java:
+
 SearchFrame.java:
+
 Server.java:
+
 ServerWorker.java:
+
 SettingsFrame.java:
+
 User.java:
 
 # Testing done for each class:
 AllProfiles.java:
+
 Client.java:
+
 ExploreUpdate.java:
+
 FriendsProfile.java:
+
 LoginFrame.java:
+
 MainPage.java:
+
 MyProfile.java:
+
 NotificationUpdate.java:
+
 ProfilePictureFrame.java:
+
 RegisterFrame.java:
+
 SearchFrame.java:
+
 Server.java:
+
 ServerWorker.java:
+
 SettingsFrame.java:
+
 User.java:

@@ -41,8 +41,6 @@ public class Server {
                         adminFriends, adminSent, adminReceived, false, adminNotifications,
                         "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public",
                         new JLabel("ProfilePic1.jfif")));
-                //GRADER: Insert a file you chose the absolute path for over in ProfilePictureFrame. Only the
-                // file name is needed. Just replace "ProfilePic1.jfif" Thank you!
             }
 
             writeToFile();
