@@ -1,33 +1,7 @@
-# Project-5
-
-
-## Tasks
-
-### Do by 4/18 (SUNDAY)
-
-#### Update main display
-Colten:
-Add Profile picture
-Change search function
-
-
-#### Other Users Tab
-Jeff:
-scroll list of all users
-
-
-#### My Profile (includes friends)
-Japneet:
-have about me section, including name, hobbies, etc.
-
-#### Notifications / Messages Tab
-Sud
-
-#### Logout Button
-
-***
-
-##### Other notes
-all pages should have a home button in top left corner
-do EXIT_ON_CLOSE for debugging, not DISPOSE_ON_CLOSE
-change to DISPOSE_NOT_CLOSE when done
+# Project 5 -- FindABoiler
+## Instructions
+- To begin, first run Server.java once. It will have a runtime error, but it will have created UserData.txt on your
+local computer. This is the file that the program reads and writes objects to, so it is important that it is
+  created by crashing Server.java first. It also contains a default login with the username and password as "admin."
+  
+- After you 
