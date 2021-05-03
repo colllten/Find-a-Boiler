@@ -12,13 +12,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Class for notifications that displays to users their outgoing and incoming friend requests
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
 
 public class NotificationUpdate extends JFrame {
 
-    public NotificationUpdate(User u){
+    public NotificationUpdate(User u) {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 u.setOnline(false);
@@ -66,8 +67,8 @@ public class NotificationUpdate extends JFrame {
                 panels.add(panel);
             }
         }
-        if (rec != null){
-            for (int i = 0; i < u.getReceivedReqs().size(); i++){
+        if (rec != null) {
+            for (int i = 0; i < u.getReceivedReqs().size(); i++) {
                 JPanel panel = new JPanel();
                 panel.setLayout(new FlowLayout(FlowLayout.LEFT));
                 User user = u.getReceivedReqs().get(i);
@@ -118,7 +119,7 @@ public class NotificationUpdate extends JFrame {
 
         JPanel topPanel = new JPanel();
         JButton home = new JButton("Home");
-        home.addActionListener(new ActionListener () {
+        home.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
                     notification.setVisible(false);
@@ -143,11 +144,11 @@ public class NotificationUpdate extends JFrame {
                 ArrayList<User> sent = u.getSentReqs();
                 ArrayList<User> rec = u.getReceivedReqs();
 
-                if (sent.size() != numSent.get()){
+                if (sent.size() != numSent.get()) {
                     different = true;
                     numSent.set(sent.size());
                 }
-                if (rec.size() != numRec.get()){
+                if (rec.size() != numRec.get()) {
                     different = true;
                     numRec.set(rec.size());
                 }
