@@ -8,6 +8,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Class for Explore Page that sets up page and lists users active on the site.
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 public class ExploreUpdate extends JFrame {
 
     //create new explore object
