@@ -71,9 +71,7 @@ public class Server {
 
             while (true) {
                 writeToFile();
-                System.out.println("[SERVER] Waiting for client connection...");
                 Socket clientSocket = socket.accept();
-                System.out.println("[SERVER] Successful Connection");
                 ServerWorker worker = new ServerWorker(clientSocket);
                 worker.start();
                 writeToFile();

@@ -1,7 +1,7 @@
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 import javax.swing.*;
 import java.util.ArrayList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * All of our automatic tests as well as descriptions of manual tests for the methods that
@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class RunLocalTest {
 
+    /*
     //There are no failing tests for any of the setters. The only time they would be handling
     //invalid input is if the input types were wrong. For example, User.setUsername(String username)
     //requires a String, but if an Integer were input, the code would not compile and therefore
@@ -455,4 +456,6 @@ public class RunLocalTest {
         u.setIcon(new JLabel("ProfilePic2.jfif"));
         assertEquals("ProfilePic2.jfif", u.getIcon().getText());
     }
+
+     */
 }
