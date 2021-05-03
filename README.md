@@ -1,6 +1,6 @@
 # Project 5 -- FindABoiler
-## Instructions
-###Setting up the Server
+## Instructions:
+### Setting up the Server
 - Profile pictures will need to be saved onto your computer so they can be displayed by the server. Pick any three
   random pictures from Google and copy their absolute paths and paste them into lines 44, 45, and 46. It is optimal
   that they are saved into the SRC folder of the project.Then on line 61:37 in Server.java, insert the file name of
@@ -66,3 +66,41 @@ contain the specified string they input into the text field. When wanting to exi
   - Only the picture's file name will be needed for adding in the admin's profile picture in `Server.java`
   - See "Setting Up the Server" above for clarity
 - If the server is still not booting up correctly, contact glover44@purdue.edu
+## Submissons
+- Report Submitted by:
+- Files Submitted to Vocareum by:
+- Video Submitted by:
+
+### Description of each class(functionality and relationship to other classes):
+AllProfiles.java:
+Client.java:
+ExploreUpdate.java:
+FriendsProfile.java:
+LoginFrame.java:
+MainPage.java:
+MyProfile.java:
+NotificationUpdate.java:
+ProfilePictureFrame.java:
+RegisterFrame.java:
+SearchFrame.java:
+Server.java:
+ServerWorker.java:
+SettingsFrame.java:
+User.java:
+
+#### Testing done for each class:
+AllProfiles.java:
+Client.java:
+ExploreUpdate.java:
+FriendsProfile.java:
+LoginFrame.java:
+MainPage.java:
+MyProfile.java:
+NotificationUpdate.java:
+ProfilePictureFrame.java:
+RegisterFrame.java:
+SearchFrame.java:
+Server.java:
+ServerWorker.java:
+SettingsFrame.java:
+User.java:
