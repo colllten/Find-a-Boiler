@@ -13,6 +13,7 @@ import java.util.Locale;
  * Class used for regestration of a new user where all information is taken
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
@@ -86,31 +87,44 @@ public class RegisterFrame extends JFrame {
                 int i = 0;
                 try {
                     if (usernameTxt.getText().isBlank() || usernameTxt.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Username is required", "Username Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Username is required",
+                                "Username Error", JOptionPane.ERROR_MESSAGE);
                     } else if (usernameTxt.getText().length() > 10) {
-                        JOptionPane.showMessageDialog(null, "Username must be less than 11 characters", "Username Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Username must be less than " +
+                                "11 characters", "Username Error", JOptionPane.ERROR_MESSAGE);
                     } else if (usernameTxt.getText().length() < 3) {
-                        JOptionPane.showMessageDialog(null, "Username must be longer than 2 characters", "Username Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (String.valueOf(passwordTxt.getPassword()).isBlank() || String.valueOf(passwordTxt.getPassword()).isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Password is required", "Password Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Username must be longer than 2" +
+                                " characters", "Username Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (String.valueOf(passwordTxt.getPassword()).isBlank() ||
+                            String.valueOf(passwordTxt.getPassword()).isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Password is required",
+                                "Password Error", JOptionPane.ERROR_MESSAGE);
                     } else if (String.valueOf(passwordTxt.getPassword()).length() < 3) {
-                        JOptionPane.showMessageDialog(null, "Password must be longer than 2 characters", "Password Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Password must be " +
+                                "longer than 2 characters", "Password Error", JOptionPane.ERROR_MESSAGE);
                     } else if (String.valueOf(passwordTxt.getPassword()).length() > 20) {
-                        JOptionPane.showMessageDialog(null, "Password must be less than 21 characters", "Password Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (!String.valueOf(passwordTxt.getPassword()).equals(String.valueOf(confirmPasswordTxt.getPassword()))) {
-                        JOptionPane.showMessageDialog(null, "Passwords do not match", "Password Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Password must be less than 21 " +
+                                "characters", "Password Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (!String.valueOf(passwordTxt.getPassword()).equals
+                            (String.valueOf(confirmPasswordTxt.getPassword()))) {
+                        JOptionPane.showMessageDialog(null, "Passwords do not match",
+                                "Password Error", JOptionPane.ERROR_MESSAGE);
                     } else if (Integer.parseInt(birthYearTxt.getText()) > 2010) {
-                        JOptionPane.showMessageDialog(null, "Must be born before 2011", "Age Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (fNameTxt.getText().isEmpty() || fNameTxt.getText().isBlank() || lNameTxt.getText().isBlank() || lNameTxt.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "First & last names must not be blank", "Name Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Must be born before 2011",
+                                "Age Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (fNameTxt.getText().isEmpty() || fNameTxt.getText().isBlank() ||
+                            lNameTxt.getText().isBlank() || lNameTxt.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null,
+                                "First & last names must not be blank", "Name Error", JOptionPane.ERROR_MESSAGE);
                     } else if (!emailTxt.getText().contains("@") || !emailTxt.getText().contains(".")) {
-                        JOptionPane.showMessageDialog(null, "Incorrect email format", "Email Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                    else {
+                        JOptionPane.showMessageDialog(null,
+                                "Incorrect email format", "Email Error", JOptionPane.ERROR_MESSAGE);
+                    } else {
                         while (!isTaken && i < Server.totalUsers.size()) {
                             if (usernameTxt.getText().equals(Server.totalUsers.get(i).getUsername())) {
                                 isTaken = true;
-                                JOptionPane.showMessageDialog(null, "Username is taken", "Username in Use", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "Username is taken",
+                                        "Username in Use", JOptionPane.ERROR_MESSAGE);
                             } else {
                                 i++;
                             }
@@ -157,7 +171,8 @@ public class RegisterFrame extends JFrame {
                             choice = choice.toLowerCase(Locale.ROOT);
                             User user = new User(usernameTxt.getText(), String.valueOf(passwordTxt.getPassword()),
                                     Integer.parseInt(birthYearTxt.getText()), fNameTxt.getText(), lNameTxt.getText(),
-                                    friends, sent, received, false, notifications, bio, email, interests, choice, new JLabel());
+                                    friends, sent, received, false, notifications, bio, email, interests, choice,
+                                    new JLabel());
                             Server.totalUsers.add(user);
                             setVisible(false);
                             Server.writeToFile();
@@ -167,7 +182,8 @@ public class RegisterFrame extends JFrame {
                         }
                     }
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Year must be an integer", "Year Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Year must be an integer",
+                            "Year Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -216,22 +232,30 @@ public class RegisterFrame extends JFrame {
                         String[] currentLine = line.split(", ");
                         if (currentLine[0].equals("Username") && currentLine[1].length() > 2 && currentLine[1].length() < 11) {
                             username = currentLine[1];
-                        } else if (currentLine[0].equals("Username") && currentLine[1].length() < 2 && currentLine[1].length() > 11){
-                            JOptionPane.showMessageDialog(null, "Username is formatted incorrectly" +
+                        } else if (currentLine[0].equals("Username") && currentLine[1].length() < 2 &&
+                                currentLine[1].length() > 11) {
+                            JOptionPane.showMessageDialog(null, "Username is formatted " +
+                                    "incorrectly" +
                                     " formatted", "Username Error", JOptionPane.ERROR_MESSAGE);
                             correctFormat = false;
                         }
-                        if (currentLine[2].equals("Password") && currentLine[3].length() > 2 && currentLine[3].length() < 21) {
+                        if (currentLine[2].equals("Password") && currentLine[3].length() > 2 &
+                                currentLine[3].length() < 21) {
                             password = currentLine[3];
-                        } else if (currentLine[2].equals("Password") && currentLine[3].length() < 2 && currentLine[3].length() > 21){
-                            JOptionPane.showMessageDialog(null, "Password is formatted incorrectly",
+                        } else if (currentLine[2].equals("Password") && currentLine[3].length() < 2 &&
+                                currentLine[3].length() > 21) {
+                            JOptionPane.showMessageDialog(null,
+                                    "Password is formatted incorrectly",
                                     "Password Error", JOptionPane.ERROR_MESSAGE);
                             correctFormat = false;
                         }
-                        if (currentLine[4].equals("BirthYear") && Integer.parseInt(currentLine[5]) > 0 && Integer.parseInt(currentLine[5]) < 2022) {
+                        if (currentLine[4].equals("BirthYear") && Integer.parseInt(currentLine[5]) > 0 &&
+                                Integer.parseInt(currentLine[5]) < 2022) {
                             birthYear = Integer.parseInt(currentLine[5]);
-                        } else if (currentLine[4].equals("BirthYear") && Integer.parseInt(currentLine[5]) < 0 && Integer.parseInt(currentLine[5]) > 2022){
-                            JOptionPane.showMessageDialog(null, "Birth Year is formatted incorrectly" +
+                        } else if (currentLine[4].equals("BirthYear") && Integer.parseInt(currentLine[5]) < 0 &&
+                                Integer.parseInt(currentLine[5]) > 2022) {
+                            JOptionPane.showMessageDialog(null, "Birth Year is formatted" +
+                                    " incorrectly" +
                                     " formatted", "Birth Year Error", JOptionPane.ERROR_MESSAGE);
                             correctFormat = false;
                         }
@@ -261,8 +285,8 @@ public class RegisterFrame extends JFrame {
                             dispose();
                             break;
                         } else {
-                            JOptionPane.showMessageDialog(null, "File was generally not formatted" +
-                                    " correctly", "File Format Issue", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "File was generally not " +
+                                    "formatted" + "correctly", "File Format Issue", JOptionPane.ERROR_MESSAGE);
                             break;
                         }
                     }
