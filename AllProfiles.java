@@ -1,4 +1,3 @@
-//with profile pic
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -7,7 +6,6 @@ import java.awt.event.*;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
-
 /**
  * Class for for all profiles avalible to view
  *
@@ -62,7 +60,7 @@ public class AllProfiles extends JFrame {
         username.setBackground(Color.CYAN);
         username.setBorder(br);
 
-        JLabel aboutMe = new JLabel("BIO : " + user.getBio()); // Creates a bio with the bio the user entered at registartion
+        JLabel aboutMe = new JLabel("Bio : " + user.getBio()); // Creates a bio with the bio the user entered at registartion
 
         JButton friends = new JButton("Friends"); // A button a user can select to view all friends
         friends.setOpaque(true);
@@ -77,13 +75,13 @@ public class AllProfiles extends JFrame {
             }
         });
 
-        /** String interest ="";
+        /* String interest ="";
          for (int i = 0; i < (user.getInterests())Str.size(); i++) {
          interest = interest + ((user.getInterests()).get(i) + "\n");
          }  */
 
 
-        /**
+        /*
          interests.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
          Object[] interests = new Object[(user.getFriends()).size()];
@@ -154,7 +152,7 @@ public class AllProfiles extends JFrame {
         }
 
 
-        /**
+        /*
          interests.setPreferredSize(new Dimension(150, 30));
          gbc.gridx = 1;
          gbc.gridy = 3;
