@@ -6,6 +6,14 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Class for Settings feature that allows for logged in user to change their information
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 public class SettingsFrame extends JFrame {
 
     public SettingsFrame(User user) {
