@@ -9,6 +9,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Class used for regestration of a new user where all information is taken
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
+
 public class RegisterFrame extends JFrame {
 
     public RegisterFrame() {
