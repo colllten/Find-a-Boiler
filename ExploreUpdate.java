@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Class for Explore Page that sets up page and lists users active on the site.
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
@@ -32,7 +33,7 @@ public class ExploreUpdate extends JFrame {
 
         explore.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         explore.setLayout(new BorderLayout());
-        explore.setSize(500,500);
+        explore.setSize(500, 500);
 
         ArrayList<User> users = Server.getTotalUsers();
         ArrayList<User> otherUsers = new ArrayList<>();
@@ -46,17 +47,17 @@ public class ExploreUpdate extends JFrame {
         for (int i = 0; i < otherUsers.size(); i++) {
             String username = u.getUsername();
             User user = users.get(i);
-            if (username.equals(user.getUsername())){
+            if (username.equals(user.getUsername())) {
                 otherUsers.remove(i);
             }
         }
-        for (int i = 0; i < otherUsers.size(); i++){
+        for (int i = 0; i < otherUsers.size(); i++) {
             User user = otherUsers.get(i);
-            if (user.getVisibility().equals("private")){
+            if (user.getVisibility().equals("private")) {
                 otherUsers.remove(i);
             }
         }
-        // Removes current user and any private users from list of all visible users 
+        // Removes current user and any private users from list of all visible users
 
         ArrayList<JPanel> panels = new ArrayList<JPanel>();
         // Creates a JPanel for each user
@@ -80,7 +81,7 @@ public class ExploreUpdate extends JFrame {
 
                 // Creates a button to send a friend request
                 JButton friendReqButton = new JButton();
-                if (u.getSentReqs().contains(user)){
+                if (u.getSentReqs().contains(user)) {
                     friendReqButton.setText("Sent");
                     friendReqButton.setEnabled(false);
                 } else {
@@ -112,7 +113,7 @@ public class ExploreUpdate extends JFrame {
                     }
                     // If the user is private, add a button to send a friend request if users are not friends
                     // and if they are friends add a button to view profile
-                } else if (user.getVisibility().equals("private")){
+                } else if (user.getVisibility().equals("private")) {
                     if (user.getFriends().contains(u)) {
                         panel.add(profileButton);
                     } else {
@@ -120,7 +121,7 @@ public class ExploreUpdate extends JFrame {
                     }
                 }
                 JLabel online = new JLabel("Online");
-                if (user.isOnline()){
+                if (user.isOnline()) {
                     panel.add(online);
                 }
                 panels.add(panel);
@@ -141,7 +142,7 @@ public class ExploreUpdate extends JFrame {
         // Add other panels and buttons to make it look pretty and be able to go home
         JPanel topPanel = new JPanel();
         JButton home = new JButton("Home");
-        home.addActionListener(new ActionListener () {
+        home.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
                     explore.setVisible(false);
@@ -158,7 +159,7 @@ public class ExploreUpdate extends JFrame {
         explore.add(scrollPane);
         explore.setVisible(true);
 
-        for (int i = 0; i < users.size(); i++){
+        for (int i = 0; i < users.size(); i++) {
             oldUsers.add(users.get(i));
         }
 
@@ -171,14 +172,14 @@ public class ExploreUpdate extends JFrame {
                 ArrayList<User> users = Server.getTotalUsers();
                 ArrayList<User> activeUsers = Server.activeUsers;
 
-                if (users.size() != oldUsers.size()){
+                if (users.size() != oldUsers.size()) {
                     different = true;
                 }
-                if (activeUsers.size() != totalActiveUsers.get()){
+                if (activeUsers.size() != totalActiveUsers.get()) {
                     different = true;
                     totalActiveUsers.set(activeUsers.size());
                 }
-                if (u.getFriends().size() != totalFriends.get()){
+                if (u.getFriends().size() != totalFriends.get()) {
                     different = true;
                     totalFriends.set(u.getFriends().size());
                 }
@@ -191,13 +192,13 @@ public class ExploreUpdate extends JFrame {
                     for (int i = 0; i < otherUsers.size(); i++) {
                         String username = u.getUsername();
                         User user = users.get(i);
-                        if (username.equals(user.getUsername())){
+                        if (username.equals(user.getUsername())) {
                             otherUsers.remove(i);
                         }
                     }
-                    for (int i = 0; i < otherUsers.size(); i++){
+                    for (int i = 0; i < otherUsers.size(); i++) {
                         User user = otherUsers.get(i);
-                        if (user.getVisibility().equals("private")){
+                        if (user.getVisibility().equals("private")) {
                             otherUsers.remove(i);
                         }
                     }
@@ -224,7 +225,7 @@ public class ExploreUpdate extends JFrame {
 
                             // Creates a button to send a friend request
                             JButton friendReqButton = new JButton();
-                            if (u.getSentReqs().contains(user)){
+                            if (u.getSentReqs().contains(user)) {
                                 friendReqButton.setText("Sent");
                                 friendReqButton.setEnabled(false);
                             } else {
@@ -255,10 +256,10 @@ public class ExploreUpdate extends JFrame {
                                     panel.add(profileButton);
                                     panel.add(friendReqButton);
                                 }
-                                // If the user is private, add a button to send a friend request if users are not 
+                                // If the user is private, add a button to send a friend request if users are not
                                 // friends
                                 // and if they are friends add a button to view profile
-                            } else if (user.getVisibility().equals("private")){
+                            } else if (user.getVisibility().equals("private")) {
                                 if (user.getFriends().contains(u)) {
                                     panel.add(profileButton);
                                 } else {
@@ -266,7 +267,7 @@ public class ExploreUpdate extends JFrame {
                                 }
                             }
                             JLabel online = new JLabel("Online");
-                            if (user.isOnline()){
+                            if (user.isOnline()) {
                                 panel.add(online);
                             }
                             panels.add(panel);
@@ -287,7 +288,7 @@ public class ExploreUpdate extends JFrame {
                     // add other panels and buttons to make it look pretty and be able to go home
                     JPanel topPanel = new JPanel();
                     JButton home = new JButton("Home");
-                    home.addActionListener(new ActionListener () {
+                    home.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             try {
                                 explore.setVisible(false);
@@ -305,7 +306,7 @@ public class ExploreUpdate extends JFrame {
                     explore.setVisible(true);
 
                     oldUsers.clear();
-                    for (int i = 0; i < users.size(); i++){
+                    for (int i = 0; i < users.size(); i++) {
                         oldUsers.add(users.get(i));
                     }
                 }
