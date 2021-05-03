@@ -4,7 +4,7 @@
 - Profile pictures are included in the download and are labeled `ProfilePic1.jfif`, `ProfilePic2.jfif`, and 
   `ProfilePic3.jfif`so they can be displayed by the server. Copy the absolute paths of `ProfilePic1`, `ProfilePic2`, 
   and `ProfilePic3` and paste them into lines 45, 47, and 49 of `ProfilePictureFrame.java`
-  - Example for ProfilePictureFrame.java lines 45, 47, 49
+  - Example for `ProfilePictureFrame.java` lines 45, 47, 49
     - `ImageIcon icon1 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic1.jfif");`
     - `ImageIcon icon2 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic2.jfif");`
     -  `ImageIcon icon3 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic3.jfif");`
@@ -12,15 +12,16 @@
 - Comments will be under these lines for clarity, reading `//GRADER: ...`
     
   
-- To begin, first run Server.java once. It will have a runtime error, but it will have created UserData.txt on your
+- To begin, first run `Server.java` once. It will have a runtime error, but it will have created `UserData.txt` on your
     local computer. This is the file that the program reads and writes objects to, so it is important that it is
-    created by crashing Server.java first. It also contains a default login with the username and password as "admin."
+    created by crashing `Server.java first`. It also contains a default login with the username and password as "admin."
   - once it has crashed once, it will be able to run correctly from there on out. No more crashes will occur, if you
-  have any questions or cannot get UserData.txt to work properly, contact glover44@purdue.edu
+  have any questions or cannot get `UserData.txt` to work properly, contact glover44@purdue.edu
     
 ### Running the Program
-- Begin by starting Server.java first, then execute Client.java. Client.java will bring up a login page where you can
-enter the admin credentials or create a new user. From there, the program is functioning and no further steps are needed
+- Begin by starting `Server.java` first, then execute `Client.java`. `Client.java` will bring up a login page where you
+  can enter the admin credentials or create a new user. From there, the program is functioning and no
+  further steps are needed
   
 #### Registration
 - Users can register unique users. There are error JOptionPanes that pop up if any info is incorrectly formatted or
