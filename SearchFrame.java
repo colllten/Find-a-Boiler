@@ -4,18 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+/**
+ * Class for Search feature that allows user to find a specific user on site
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
 
-    /**
-     * Class for Search feature that allows user to find a specific user on site
-     *
-     * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
-     *
-     * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
-     * @version May 3, 2021
-     */
-
-    public class SearchFrame extends JFrame {
-        public SearchFrame(ArrayList<User> users, User user) {
+public class SearchFrame extends JFrame {
+    public SearchFrame(ArrayList<User> users, User user) {
         //FRAME SETUP//
         setTitle("Possible Users");
         setSize(500, 500);
