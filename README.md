@@ -73,7 +73,6 @@ contain the specified string they input into the text field. When wanting to exi
 # Description of each class(functionality and relationship to other classes):
 ### AllProfiles.java:
 
-
 ### Client.java:
 
 ### ExploreUpdate.java:
@@ -81,9 +80,14 @@ contain the specified string they input into the text field. When wanting to exi
 ### FriendsProfile.java:
 
 ### LoginFrame.java:
-
+This is what is originally called to start the program. Users can either enter in their credentials or register a new
+user. If an incorrect username or password is entered, the user will be notified. Once a successful login occurs,
+a new MainPage linked to the logged-in user is called, and the login frame is disposed.
 ### MainPage.java:
-
+The main page is the basis of what the user uses to interact with the rest of the platform. The user can select a button
+from the top bar, and it will take them to the specified page. The user can also input a string into the search bar
+at the bottom, and it will bring a new frame showing all the users that contain that specified string in their
+username.
 ### MyProfile.java:
 
 ### NotificationUpdate.java:
