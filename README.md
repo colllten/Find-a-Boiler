@@ -58,7 +58,7 @@ contain the specified string they input into the text field. When wanting to exi
   
 # Troubleshooting 
 - Ensure that UserData.txt exists after the first attempt at running the server is over
-- Make sure the three profile pictures are downloaded and their absolute file paths have been copied into their
+- Make sure the three profile pictures are downloaded, and their absolute file paths have been copied into their
   respective lines
   - Absolute paths must be pasted into the specified lines in `ProfilePictureFrame.java`
   - See "Setting Up the Server" above for clarity
@@ -113,7 +113,8 @@ them to choose their profile picture.
 ###User.java:
 
 # Testing done for each class:
-General note: For all the classes marked with a ~, the only method 
+### General note: 
+For all the classes marked with a "~", the only method 
 is a constructor, and the failing test for those constructors is to enter 
 a null user into the parameters for the constructor. However, this will not 
 happen during the running of the program, as the automatic updates remove any
