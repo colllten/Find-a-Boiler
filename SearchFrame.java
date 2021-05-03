@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SearchFrame extends JFrame {
@@ -28,6 +31,20 @@ public class SearchFrame extends JFrame {
         });
         // FRAME SETUP //
 
+        JPanel home = new JPanel();
+        JButton homeButton = new JButton("Main Page");
+        homeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                try {
+                    new MainPage(user);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                dispose();
+            }
+        });
+
         //LABEL AND BUTTON SETUP//
         g.weighty = 0.5;
         g.anchor = GridBagConstraints.FIRST_LINE_END;
@@ -45,6 +62,15 @@ public class SearchFrame extends JFrame {
         g.anchor = GridBagConstraints.FIRST_LINE_START;
         for (int i = 0; i < users.size(); i++) {
             JButton button = new JButton("Profile");
+            int finalI = i;
+            button.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    new AllProfiles(users.get(finalI), user);
+                    setVisible(false);
+                    Server.writeToFile();
+                    dispose();
+                }
+            });
             foundUsers.add(button, g);
             g.gridy++;
         }
@@ -55,7 +81,5 @@ public class SearchFrame extends JFrame {
         add(foundUsers, BorderLayout.CENTER);
         setLocationRelativeTo(null);
         setVisible(true);
-
-
     }
 }
