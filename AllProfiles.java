@@ -72,7 +72,8 @@ public class AllProfiles extends JFrame {
         friends.setBackground(Color.CYAN);
         friends.setBorder(br);
         friends.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) { // If the button is clicked, the previous page they were on is not visible, as friends is shown
+            public void actionPerformed(ActionEvent e) { // If the button is clicked, the previous page they were
+                // on is not visible, as friends is shown
                 setVisible(false);
                 dispose();
                 new FriendsProfile(user);

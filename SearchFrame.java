@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SearchFrame extends JFrame {
-
     /**
      * Class for Search feature that allows user to find a specific user on site
      *
@@ -16,7 +14,8 @@ public class SearchFrame extends JFrame {
      * @version May 3, 2021
      */
 
-    public SearchFrame(ArrayList<User> users, User user) {
+    public class SearchFrame extends JFrame {
+        public SearchFrame(ArrayList<User> users, User user) {
         //FRAME SETUP//
         setTitle("Possible Users");
         setSize(500, 500);
@@ -76,8 +75,6 @@ public class SearchFrame extends JFrame {
             g.gridy++;
         }
         //LABEL AND BUTTON SETUP//
-
-        //TODO Add links to frames for user profile frames from Japneet
 
         add(foundUsers, BorderLayout.CENTER);
         setLocationRelativeTo(null);

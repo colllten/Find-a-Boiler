@@ -105,8 +105,8 @@ public class RegisterFrame extends JFrame {
                     } else if (String.valueOf(passwordTxt.getPassword()).length() > 20) {
                         JOptionPane.showMessageDialog(null, "Password must be less than 21 " +
                                 "characters", "Password Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (!String.valueOf(passwordTxt.getPassword()).equals
-                            (String.valueOf(confirmPasswordTxt.getPassword()))) {
+                    } else if (!String.valueOf(passwordTxt.getPassword()).equals(
+                            String.valueOf(confirmPasswordTxt.getPassword()))) {
                         JOptionPane.showMessageDialog(null, "Passwords do not match",
                                 "Password Error", JOptionPane.ERROR_MESSAGE);
                     } else if (Integer.parseInt(birthYearTxt.getText()) > 2010) {
@@ -230,7 +230,8 @@ public class RegisterFrame extends JFrame {
 
                         boolean correctFormat = true;
                         String[] currentLine = line.split(", ");
-                        if (currentLine[0].equals("Username") && currentLine[1].length() > 2 && currentLine[1].length() < 11) {
+                        if (currentLine[0].equals("Username") && currentLine[1].length() > 2 &&
+                                currentLine[1].length() < 11) {
                             username = currentLine[1];
                         } else if (currentLine[0].equals("Username") && currentLine[1].length() < 2 &&
                                 currentLine[1].length() > 11) {

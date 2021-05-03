@@ -58,7 +58,7 @@ public class SettingsFrame extends JFrame {
         JButton submit = new JButton("Submit");
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(firstNameTxt.getText().isBlank() || firstNameTxt.getText().isEmpty()) {
+                if (firstNameTxt.getText().isBlank() || firstNameTxt.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "First name cannot be empty",
                             "Name Error", JOptionPane.ERROR_MESSAGE);
                 } else if (lastNameTxt.getText().isBlank() || lastNameTxt.getText().isEmpty()) {
@@ -71,7 +71,8 @@ public class SettingsFrame extends JFrame {
                     JOptionPane.showMessageDialog(null, "Username must be between 3 and 10 characters",
                             "Username Error", JOptionPane.ERROR_MESSAGE);
                 } else if (String.valueOf(newPasswordTxt).isEmpty() || String.valueOf(newPasswordTxt).isBlank() ||
-                        String.valueOf(confirmNewPasswordTxt).isEmpty() || String.valueOf(confirmNewPasswordTxt).isBlank()) {
+                        String.valueOf(confirmNewPasswordTxt).isEmpty() ||
+                        String.valueOf(confirmNewPasswordTxt).isBlank()) {
                     JOptionPane.showMessageDialog(null, "Password cannot be empty", "Password Error",
                             JOptionPane.ERROR_MESSAGE);
                 } else if (String.valueOf(newPasswordTxt.getPassword()).length() < 3 ||
