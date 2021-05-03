@@ -3,6 +3,14 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class SearchFrame extends JFrame {
+    
+ /**
+ * Class for Search feature that allows user to find a specific user on site
+ *
+ * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
+ * @version May 3, 2021
+ */
 
     public SearchFrame (ArrayList<User> users, User user) {
         //FRAME SETUP//
