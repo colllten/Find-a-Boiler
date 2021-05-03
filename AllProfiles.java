@@ -6,10 +6,12 @@ import java.awt.event.*;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+
 /**
  * Class for for all profiles avalible to view
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
@@ -21,7 +23,7 @@ public class AllProfiles extends JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 currentUser.setOnline(false);
-                Server.writeToFile(); // Used to save data even when Server is shut down. Data written to and from a 
+                Server.writeToFile(); // Used to save data even when Server is shut down. Data written to and from a
                 // txt file
             }
         });
@@ -39,8 +41,8 @@ public class AllProfiles extends JFrame {
 
         JLabel pic;
         pic = currentUser.getIcon();
-        JButton toReturn = new JButton("Return to Main Page"); // Button that allows users to return to the home 
-        // page 
+        JButton toReturn = new JButton("Return to Main Page"); // Button that allows users to return to the home
+        // page
         toReturn.setOpaque(true);
         toReturn.setBackground(Color.CYAN);
         toReturn.setBorder(br);
@@ -62,7 +64,7 @@ public class AllProfiles extends JFrame {
         username.setBackground(Color.CYAN);
         username.setBorder(br);
 
-        JLabel aboutMe = new JLabel("Bio : " + user.getBio()); // Creates a bio with the bio the user entered at 
+        JLabel aboutMe = new JLabel("Bio : " + user.getBio()); // Creates a bio with the bio the user entered at
         // registration
 
         JButton friends = new JButton("Friends"); // A button a user can select to view all friends
@@ -103,7 +105,7 @@ public class AllProfiles extends JFrame {
         contact.setBorder(br);
         contact.addActionListener(new ActionListener() { // If the contact info button is clicked, user's email is shown
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, user.getEmail(), "Email", 
+                JOptionPane.showMessageDialog(null, user.getEmail(), "Email",
                         JOptionPane.INFORMATION_MESSAGE);
             }
         });
@@ -139,8 +141,8 @@ public class AllProfiles extends JFrame {
         int y = 2;
         Border b = BorderFactory.createLineBorder(Color.PINK, 3);
 
-        for(int i = 0; i < (user.getInterests()).size(); i++) { // Loops through all the user's interests
-            interests = new JLabel((i + 1) + " " +((user.getInterests()).get(i)));
+        for (int i = 0; i < (user.getInterests()).size(); i++) { // Loops through all the user's interests
+            interests = new JLabel((i + 1) + " " + ((user.getInterests()).get(i)));
             interests.setBorder(b);
             interests.setOpaque(true);
             interests.setBackground(Color.YELLOW);
@@ -149,7 +151,6 @@ public class AllProfiles extends JFrame {
             gbc.gridy = y;
 
             jp.add(interests, gbc); // List of user's interests is displayed on Profile
-
 
 
             //y++;
@@ -173,7 +174,6 @@ public class AllProfiles extends JFrame {
         gbc.gridy = 4;
         gbc.ipadx = 1;
         jp.add(toReturn, gbc);
-
 
 
         add(jp, BorderLayout.CENTER);
