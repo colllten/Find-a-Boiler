@@ -1,4 +1,5 @@
 //with profile pic
+
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +13,7 @@ import javax.swing.border.Border;
  * Class for the cureent logged in user's profile and all their information
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
@@ -19,7 +21,7 @@ import javax.swing.border.Border;
 
 public class MyProfile extends JFrame {
 
-    public MyProfile(User user)  {
+    public MyProfile(User user) {
         setTitle("My Profile");
         setSize(500, 500);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -100,7 +102,8 @@ public class MyProfile extends JFrame {
         contact.setBorder(br);
         contact.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, user.getEmail(), "Email", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, user.getEmail(), "Email",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
@@ -145,8 +148,8 @@ public class MyProfile extends JFrame {
         int y = 2;
         Border b = BorderFactory.createLineBorder(Color.PINK, 3);
 
-        for(int i = 0; i < (user.getInterests()).size(); i++) {
-            interests = new JLabel((i + 1) + " " +((user.getInterests()).get(i)));
+        for (int i = 0; i < (user.getInterests()).size(); i++) {
+            interests = new JLabel((i + 1) + " " + ((user.getInterests()).get(i)));
             interests.setBorder(b);
             interests.setOpaque(true);
             interests.setBackground(Color.YELLOW);
@@ -155,7 +158,6 @@ public class MyProfile extends JFrame {
             gbc.gridy = y;
 
             jp.add(interests, gbc);
-
 
 
             //y++;
