@@ -128,7 +128,10 @@ public class MainPage extends JFrame {
                 if (!usersFound) {
                     JOptionPane.showMessageDialog(null, "User not found", "Not Found", JOptionPane.WARNING_MESSAGE);
                 } else {
+                    setVisible(false);
                     new SearchFrame(potentialUsers, user);
+                    Server.writeToFile();
+                    dispose();
                 }
             }
         });
@@ -136,22 +139,8 @@ public class MainPage extends JFrame {
         searchPanel.add(searchBar, gc);
         add(searchPanel, BorderLayout.SOUTH);
         // SEARCH FUNCTION
-
-
-
-        // PICTURE
-        /*
-        BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\ketch\\IdeaProjects\\Homework 12\\SoloPJ5\\src\\PurdueLogo.jpg"));
-        Image scaledImage = myPicture.getScaledInstance(getWidth() -100, getHeight() -100,Image.SCALE_SMOOTH);
-        JLabel picLabel = new JLabel(new ImageIcon(scaledImage));
-        add(picLabel, BorderLayout.CENTER);
-
-         */
-        
-
         add(panel, BorderLayout.NORTH);
         setLocationRelativeTo(null);
         setVisible(true);
-
     }
 }
