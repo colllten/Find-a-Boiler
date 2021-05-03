@@ -66,12 +66,12 @@ contain the specified string they input into the text field. When wanting to exi
   - Only the picture's file name will be needed for adding in the admin's profile picture in `Server.java`
   - See "Setting Up the Server" above for clarity
 - If the server is still not booting up correctly, contact glover44@purdue.edu
-## Submissons
+# Submissons
 - Report Submitted by:
 - Files Submitted to Vocareum by:
 - Video Submitted by:
 
-### Description of each class(functionality and relationship to other classes):
+# Description of each class(functionality and relationship to other classes):
 AllProfiles.java:
 Client.java:
 ExploreUpdate.java:
@@ -88,7 +88,7 @@ ServerWorker.java:
 SettingsFrame.java:
 User.java:
 
-#### Testing done for each class:
+# Testing done for each class:
 AllProfiles.java:
 Client.java:
 ExploreUpdate.java:
