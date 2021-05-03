@@ -25,24 +25,6 @@ public class Server {
         adminInterests.add("Dancing");
         adminInterests.add("Singing");
         //Admin Login
-
-
-
-        // Test user
-        ArrayList<User> testFriends = new ArrayList<>();
-        ArrayList<User> testReceived = new ArrayList<>();
-        ArrayList<User> testSent = new ArrayList<>();
-        ArrayList<User> testNotifications = new ArrayList<>();
-        ArrayList<String> testInterests = new ArrayList<>();
-
-
-        ArrayList<User> otherFriends = new ArrayList<User>();
-        ArrayList<User> otherReceived = new ArrayList<>();
-        ArrayList<User> otherSent = new ArrayList<>();
-        ArrayList<User> otherNotifications = new ArrayList<>();
-        ArrayList<String> otherInterests = new ArrayList<>();
-
-
         try {
             FileInputStream fis = new FileInputStream("UserData.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -59,17 +41,9 @@ public class Server {
                         adminFriends, adminSent, adminReceived, false, adminNotifications,
                         "This is the Admin's bio", "admin@yahoo.com", adminInterests, "public",
                         new JLabel("ProfilePic1.jfif")));
+                //GRADER: Insert a file you chose the absolute path for over in ProfilePictureFrame. Only the
+                // file name is needed. Just replace "ProfilePic1.jfif" Thank you!
             }
-
-            /*
-            totalUsers.add(new User("other", "other", 2001, "other", "other",
-                    otherFriends, otherSent, otherReceived, false, otherNotifications, "Other bio",
-                    "other@email.com", otherInterests, "public"));
-            totalUsers.add(new User("test", "test", 2001, "test", "test",
-                    testFriends, testSent, testReceived, false, testNotifications, "Test bio",
-                    "test@yahoo.com", testInterests, "public"));
-
-             */
 
             writeToFile();
 

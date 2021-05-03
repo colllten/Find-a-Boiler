@@ -5,16 +5,14 @@
   random pictures from Google and copy their absolute paths and paste them into lines 44, 45, and 46. It is optimal
   that they are saved into the SRC folder of the project.Then on line 61:37 in Server.java, insert the file name of
   whatever profile picture the admin login will have.
-  - Example for ProfilePictureFrame.java lines 44-46
+  - Example for ProfilePictureFrame.java lines 44, 46, 48
+    - `ImageIcon icon1 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic1.jfif");`
+    - `ImageIcon icon2 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic2.jfif");`
+    -  `ImageIcon icon3 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic3.jfif");`
     
-`ImageIcon icon1 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic1.jfif");`
-
-`ImageIcon icon2 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic2.jfif");`
-
-`ImageIcon icon3 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\PJ5\\src\\ProfilePic3.jfif");`
-- - Example for Server.java 61:37
-  
-  `new JLabel("ProfilePic1.jfif")));`
+  - Example for Server.java 61:37
+    - `new JLabel("ProfilePic1.jfif")));`
+- Comments will be under these lines for clarity, reading `//GRADER: ...`
     
   
 - To begin, first run Server.java once. It will have a runtime error, but it will have created UserData.txt on your
@@ -49,8 +47,8 @@ request, it will appear in your Sent box within Notifications. It allows you to 
   flip side, the other use can accept or decline the request.
   
 #### Importing
-- A demo importable CSV file is available to test. Copy `import.txt`'s absolute location and paste it into the
-textfield located in the registration frame.
+- A demo importable CSV file is available to test. Copy `import.txt`'s absolute path and paste it into the
+text field located in the registration frame.
   
 #### Exporting
 - Exporting can be achieved by logging in > My Profile > Settings > Export. This exports a file named `exportedUser.txt`
@@ -64,4 +62,7 @@ contain the specified string they input into the text field. When wanting to exi
 # Troubleshooting 
 - Ensure that UserData.txt is in your SRC folder
 - Make sure to download any three pictures and enter them into their respective lines
+  - Absolute paths must be pasted into the specified lines in `ProfilePictureFrame.java`
+  - Only the picture's file name will be needed for adding in the admin's profile picture in `Server.java`
+  - See "Setting Up the Server" above for clarity
 - If the server is still not booting up correctly, contact glover44@purdue.edu

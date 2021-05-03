@@ -42,8 +42,11 @@ public class ProfilePictureFrame extends JFrame {
         group.add(woods);
 
         ImageIcon icon1 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\Solo PJ5\\src\\ProfilePic1.jfif");
+        //GRADER: Insert the absolute file path of the picture you want for Profile Pic 1 in between the " " above
         ImageIcon icon2 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\Solo PJ5\\src\\ProfilePic2.jfif");
+        //GRADER: Insert the absolute file path of the picture you want for Profile Pic 2 in between the " " above
         ImageIcon icon3 = new ImageIcon("C:\\Users\\Colten\\IdeaProjects\\Solo PJ5\\src\\ProfilePic3.jfif");
+        //GRADER: Insert the absolute file path of the picture you want for Profile Pic 3 in between the " " above
 
         Image image = icon1.getImage();
         Image newImage = image.getScaledInstance(75, 75, Image.SCALE_SMOOTH);
