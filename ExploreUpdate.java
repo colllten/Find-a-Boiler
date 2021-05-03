@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ExploreUpdate extends JFrame {
 
-   
+
     public ExploreUpdate(User u) { // Creates new explore object
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -42,7 +42,7 @@ public class ExploreUpdate extends JFrame {
         totalFriends.set(u.getFriends().size());
 
         otherUsers.addAll(users);
-        
+
         for (int i = 0; i < otherUsers.size(); i++) {
             String username = u.getUsername();
             User user = users.get(i);
@@ -255,7 +255,8 @@ public class ExploreUpdate extends JFrame {
                                     panel.add(profileButton);
                                     panel.add(friendReqButton);
                                 }
-                                // If the user is private, add a button to send a friend request if users are not friends
+                                // If the user is private, add a button to send a friend request if users are not 
+                                // friends
                                 // and if they are friends add a button to view profile
                             } else if (user.getVisibility().equals("private")){
                                 if (user.getFriends().contains(u)) {
