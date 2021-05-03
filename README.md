@@ -65,11 +65,11 @@ contain the specified string they input into the text field. When wanting to exi
   - See "Setting Up the Server" above for clarity
 - If the server is still not booting up correctly, contact glover44@purdue.edu
 # Submissons
-- Report Submitted by:
+- Report Submitted by: Sudhanva Bharadwaj, bharadw9@purdue.edu
   
 - Files Submitted to Vocareum by: Colten Glover, glover44@purdue.edu
   
-- Video Submitted by:
+- Video Submitted by: Brayden Hall
 
 # Description of each class(functionality and relationship to other classes):
 ### AllProfiles.java:
