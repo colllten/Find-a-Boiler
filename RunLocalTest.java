@@ -1,13 +1,15 @@
 //import org.junit.jupiter.api.Test;
+
 import javax.swing.*;
 import java.util.ArrayList;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * All of our automatic tests as well as descriptions of manual tests for the methods that
- * cannot be tested automatically. 
+ * cannot be tested automatically.
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
