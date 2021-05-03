@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * Class for Main page of project where user is given option to visit various tabs
  *
  * <p>Purdue University -- CS18000 -- Spring 2021 -- Project 5
+ *
  * @author Sudhanva Bharadwaj, Colten Glover, Brayden Hall, Japneet Mavi, Jeff Woodhouse
  * @version May 3, 2021
  */
@@ -126,7 +127,8 @@ public class MainPage extends JFrame {
                     }
                 }
                 if (!usersFound) {
-                    JOptionPane.showMessageDialog(null, "User not found", "Not Found", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "User not found", "Not Found",
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     setVisible(false);
                     new SearchFrame(potentialUsers, user);
